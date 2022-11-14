@@ -8,32 +8,32 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainController">
+<AnchorPane prefHeight="750.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainController">
    <children>
-      <Pane layoutX="235.0" layoutY="140.0" prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: WHITE;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane layoutX="235.0" layoutY="140.0" prefHeight="750.0" prefWidth="750.0" style="-fx-background-color: WHITE;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffdcdc" height="157.0" stroke="TRANSPARENT" strokeType="INSIDE" width="800.0" />
-            <Text fill="#836b60" layoutX="216.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Helping Paw">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffdcdc" height="157.0" stroke="TRANSPARENT" strokeType="INSIDE" width="750.0" />
+            <Text fill="#836b60" layoutX="189.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Helping Paw">
                <font>
-                  <Font name="October Devanagari Medium" size="63.0" />
+                  <Font name="October Devanagari Medium" size="60.0" />
                </font>
             </Text>
-            <Button fx:id="btMyPlanner" layoutX="272.0" layoutY="266.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="268.0" style="-fx-background-color: #ffdcdc;" text="My Planner" textAlignment="CENTER" textFill="#836b60">
+            <Button fx:id="btMyPlanner" layoutX="252.0" layoutY="234.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="268.0" style="-fx-background-color: #ffdcdc;" text="My Planner" textAlignment="CENTER" textFill="#836b60">
                <font>
                   <Font name="October Devanagari Medium" size="35.0" />
                </font>
             </Button>
-            <Button fx:id="btExit" layoutX="272.0" layoutY="606.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="268.0" style="-fx-background-color: #ffdcdc;" text="Exit" textAlignment="CENTER" textFill="#836b60">
+            <Button fx:id="btExit" layoutX="252.0" layoutY="529.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="268.0" style="-fx-background-color: #ffdcdc;" text="Exit" textAlignment="CENTER" textFill="#836b60">
                <font>
                   <Font name="October Devanagari Medium" size="35.0" />
                </font>
             </Button>
-            <Button fx:id="btOptions" layoutX="272.0" layoutY="436.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="268.0" style="-fx-background-color: #ffdcdc;" text="Options" textAlignment="CENTER" textFill="#836b60">
+            <Button fx:id="btOptions" layoutX="252.0" layoutY="384.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="268.0" style="-fx-background-color: #ffdcdc;" text="Options" textAlignment="CENTER" textFill="#836b60">
                <font>
                   <Font name="October Devanagari Medium" size="35.0" />
                </font>
             </Button>
-            <ImageView fx:id="imgViewCat" fitHeight="230.0" fitWidth="241.0" layoutX="570.0" layoutY="570.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgViewCat" fitHeight="231.0" fitWidth="230.0" layoutX="521.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../images/phil.jpeg" />
                </image>
