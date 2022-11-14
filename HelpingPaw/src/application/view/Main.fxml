@@ -18,17 +18,17 @@
                   <Font name="October Devanagari Medium" size="63.0" />
                </font>
             </Text>
-            <Button fx:id="btMyPlanner" layoutX="272.0" layoutY="266.0" mnemonicParsing="false" onAction="#handle" prefHeight="100.0" prefWidth="268.0" style="-fx-background-color: #ffdcdc;" text="My Planner" textAlignment="CENTER" textFill="#836b60">
+            <Button fx:id="btMyPlanner" layoutX="272.0" layoutY="266.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="268.0" style="-fx-background-color: #ffdcdc;" text="My Planner" textAlignment="CENTER" textFill="#836b60">
                <font>
                   <Font name="October Devanagari Medium" size="35.0" />
                </font>
             </Button>
-            <Button fx:id="btExit" layoutX="272.0" layoutY="606.0" mnemonicParsing="false" onAction="#handle" prefHeight="100.0" prefWidth="268.0" style="-fx-background-color: #ffdcdc;" text="Exit" textAlignment="CENTER" textFill="#836b60">
+            <Button fx:id="btExit" layoutX="272.0" layoutY="606.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="268.0" style="-fx-background-color: #ffdcdc;" text="Exit" textAlignment="CENTER" textFill="#836b60">
                <font>
                   <Font name="October Devanagari Medium" size="35.0" />
                </font>
             </Button>
-            <Button fx:id="btOptions" layoutX="272.0" layoutY="436.0" mnemonicParsing="false" onAction="#handle" prefHeight="100.0" prefWidth="268.0" style="-fx-background-color: #ffdcdc;" text="Options" textAlignment="CENTER" textFill="#836b60">
+            <Button fx:id="btOptions" layoutX="272.0" layoutY="436.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="268.0" style="-fx-background-color: #ffdcdc;" text="Options" textAlignment="CENTER" textFill="#836b60">
                <font>
                   <Font name="October Devanagari Medium" size="35.0" />
                </font>
