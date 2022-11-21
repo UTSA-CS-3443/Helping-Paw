@@ -56,6 +56,23 @@ public class MainController implements EventHandler<ActionEvent>, Initializable 
 	public void handle(ActionEvent event) {
 		Button bt = (Button) event.getSource();
 
+		if (bt.getId().equals("btPlanner")) {
+
+			try {
+
+				FXMLLoader loader = new FXMLLoader();
+				loader.setLocation(getClass().getResource("../view/PlannerView.fxml"));		
+
+				Scene scene = new Scene(loader.load());
+
+				Main.stage.setScene(scene);
+				Main.stage.show();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		if (bt.getId().equals("btOptions")) {
 
 			try {
@@ -72,8 +89,6 @@ public class MainController implements EventHandler<ActionEvent>, Initializable 
 				e.printStackTrace();
 			}
 		}
-
-		//TODO: if user clicks on MyPlanner button
 
 		if (bt.getId().equals("btExit")) {
 			Main.stage.close();

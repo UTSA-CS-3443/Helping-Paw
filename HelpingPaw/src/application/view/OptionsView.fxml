@@ -17,7 +17,7 @@
       <Circle fx:id="cirPurple" fill="#dbdaff" layoutX="622.0" layoutY="350.0" onMouseClicked="#handle" radius="45.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="5.0" />
       <ImageView fx:id="imgSalem" fitHeight="191.0" fitWidth="204.0" layoutX="516.0" layoutY="559.0" onMouseClicked="#handle" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/salem.jpg" />
+            <Image url="@../../images/salem.jpeg" />
          </image>
       </ImageView>
       <Text fx:id="txtSalem" layoutX="561.0" layoutY="617.0" strokeType="OUTSIDE" strokeWidth="3.0" text="salem" textAlignment="CENTER">

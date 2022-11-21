@@ -1,8 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<AnchorPane maxHeight="750.0" maxWidth="750.0" prefHeight="750.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.PlannerController">
+   <children>
+      <Pane layoutX="155.0" layoutY="163.0" maxHeight="750.0" maxWidth="750.0" prefHeight="750.0" prefWidth="750.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ListView fx:id="tblViewMorning" layoutX="164.0" layoutY="196.0" prefHeight="133.0" prefWidth="411.0" />
+            <ListView fx:id="tblViewAfternoon" layoutX="164.0" layoutY="328.0" prefHeight="133.0" prefWidth="411.0" />
+            <ImageView fx:id="imgCat" fitHeight="231.0" fitWidth="230.0" layoutX="520.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/phil.jpeg" />
+               </image>
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+            </ImageView>
+            <ListView fx:id="tblViewNight" layoutX="164.0" layoutY="460.0" prefHeight="133.0" prefWidth="411.0" />
+            <ImageView fitHeight="69.0" fitWidth="63.0" layoutX="594.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/sun.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="69.0" fitWidth="63.0" layoutX="597.0" layoutY="364.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/cloud.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="67.0" fitWidth="70.0" layoutX="592.0" layoutY="495.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/moon.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="#ffdcdc" height="157.0" stroke="TRANSPARENT" strokeType="INSIDE" width="750.0" AnchorPane.leftAnchor="0.0" />
+      <Text fill="#836b60" layoutX="216.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Planner">
+         <font>
+            <Font name="October Devanagari Medium" size="60.0" />
+         </font>
+      </Text>
+   </children>
 </AnchorPane>
-
