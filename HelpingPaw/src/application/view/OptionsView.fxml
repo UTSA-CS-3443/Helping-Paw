@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="750.0" maxWidth="750.0" minHeight="750.0" minWidth="750.0" prefHeight="750.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.OptionsController">
+   <children>
+      <Pane prefHeight="750.0" prefWidth="750.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Circle fx:id="cirPink" fill="#ffd6da" layoutX="121.0" layoutY="350.0" onMouseClicked="#handle" radius="45.0" stroke="#826a6000" strokeType="INSIDE" strokeWidth="5.0" />
+      <Circle fx:id="cirGreen" fill="#d1ffd0" layoutX="464.0" layoutY="352.0" onMouseClicked="#handle" radius="45.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="5.0" />
+      <Circle fx:id="cirOrange" fill="#ffdc9d" layoutX="296.0" layoutY="350.0" onMouseClicked="#handle" radius="45.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="5.0" />
+      <Circle fx:id="cirPurple" fill="#dbdaff" layoutX="622.0" layoutY="350.0" onMouseClicked="#handle" radius="45.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="5.0" />
+      <ImageView fx:id="imgSalem" fitHeight="191.0" fitWidth="204.0" layoutX="516.0" layoutY="559.0" onMouseClicked="#handle" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/salem.jpg" />
+         </image>
+      </ImageView>
+      <Text fx:id="txtSalem" layoutX="561.0" layoutY="617.0" strokeType="OUTSIDE" strokeWidth="3.0" text="salem" textAlignment="CENTER">
+         <font>
+            <Font name="October Devanagari Medium" size="32.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="imgEd" fitHeight="191.0" fitWidth="204.0" layoutX="276.0" layoutY="559.0" onMouseClicked="#handle" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/ed.jpeg" />
+         </image>
+      </ImageView>
+      <Text fx:id="txtEd" layoutX="346.0" layoutY="617.0" strokeType="OUTSIDE" strokeWidth="3.0" text="ed" textAlignment="CENTER">
+         <font>
+            <Font name="October Devanagari Medium" size="32.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="imgPhil" fitHeight="191.0" fitWidth="204.0" layoutX="33.0" layoutY="559.0" onMouseClicked="#handle" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/phil.jpeg" />
+         </image>
+      </ImageView>
+      <Text fx:id="txtPhil" layoutX="94.0" layoutY="617.0" stroke="#ffffff00" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="3.0" text="phil" textAlignment="CENTER">
+         <font>
+            <Font name="October Devanagari Medium" size="32.0" />
+         </font>
+      </Text>
+      <Text fill="#836b60" layoutX="336.0" layoutY="517.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cat" textAlignment="CENTER">
+         <font>
+            <Font name="October Devanagari Medium" size="48.0" />
+         </font>
+      </Text>
+      <Text fill="#836b60" layoutX="295.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Theme" textAlignment="CENTER">
+         <font>
+            <Font name="October Devanagari Medium" size="48.0" />
+         </font>
+      </Text>
+      <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="#ffdcdc" height="157.0" stroke="TRANSPARENT" strokeType="INSIDE" width="750.0" />
+      <Text fill="#836b60" layoutX="271.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Options" textAlignment="CENTER">
+         <font>
+            <Font name="October Devanagari Medium" size="60.0" />
+         </font>
+      </Text>
+      <Button fx:id="btBack" layoutX="33.0" layoutY="45.0" mnemonicParsing="false" onMouseClicked="#handle" prefHeight="59.0" prefWidth="147.0" style="-fx-background-color: white;" text="Back" textAlignment="CENTER" textFill="#836b60">
+         <font>
+            <Font name="October Devanagari Medium" size="35.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

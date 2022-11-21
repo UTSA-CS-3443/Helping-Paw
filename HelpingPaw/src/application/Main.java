@@ -1,16 +1,23 @@
 package application;
 	
+import application.model.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-
+import javafx.scene.paint.Color;
 
 public class Main extends Application {
+	
+	public static User user = new User(Color.rgb(255, 214, 218), "phil");
+	public static Stage stage; 
+	
 	@Override
 	public void start(Stage primaryStage) {
+		stage = primaryStage;
 		try {
+
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource("view/Main.fxml"));
 
