@@ -75,7 +75,9 @@ public class MainController implements EventHandler<ActionEvent>, Initializable 
 
 		//TODO: if user clicks on MyPlanner button
 
-		//TODO: if user clicks on Exit button
+		if (bt.getId().equals("btExit")) {
+			Main.stage.close();
+		}
 
 	}
 }
