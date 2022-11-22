@@ -63,7 +63,7 @@ public class MainController implements EventHandler<ActionEvent>, Initializable 
 			}
 			//MyPlanner is temporarily TimerView for testing purposes
 			if (bt.getId().equals("btPlanner")) {
-				loader.setLocation(getClass().getResource("../view/TimerView.fxml"));		
+				loader.setLocation(getClass().getResource("../view/PlannerView.fxml"));		
 			}		
 
 			if (bt.getId().equals("btExit")) {
