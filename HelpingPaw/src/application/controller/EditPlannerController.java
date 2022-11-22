@@ -123,7 +123,7 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 
 			if (bt.getId().equals("btAdd")) {
 
-				if (cbTOD.getValue() != null || !txtFieldTask.getText().isEmpty()) {
+				if (cbTOD.getValue() != null && !txtFieldTask.getText().isEmpty()) {
 					Task newTask = new Task(txtFieldTask.getText(), cbTOD.getValue());
 					Main.planner.add(newTask);
 					txtFieldTask.clear();
