@@ -31,16 +31,16 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 	    Button btAdd;
 
 	    @FXML
-	    ListView<?> tblViewNightEP;
+	    ListView<String> tblViewNightEP;
 	    
 	    @FXML
-	    ListView<?> tblViewAfternoonEP;
+	    ListView<String> tblViewAfternoonEP;
 
 	    @FXML
-	    ListView<?> tblViewMorningEP;
+	    ListView<String> tblViewMorningEP;
 	    
 	    @FXML
-	    ChoiceBox<?> choiceTOD;
+	    ChoiceBox<String> choiceTOD;
 	    
 	    @FXML
 	    Rectangle rectangleEP;
@@ -55,7 +55,6 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 		rectangleEP.setFill(Main.user.color);
 		String col = User.colorToString(Main.user.color);
 		
-		btBack.setStyle("-fx-background-color: " + col);
 		btDelete.setStyle("-fx-background-color: " + col);
 		btAdd.setStyle("-fx-background-color: " + col);
 		

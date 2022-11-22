@@ -60,7 +60,6 @@ public class PlannerController implements EventHandler<ActionEvent>, Initializab
 		rectangle.setFill(Main.user.color);
 		String col = User.colorToString(Main.user.color);
 		
-		btBack.setStyle("-fx-background-color: " + col);
 		btEdit.setStyle("-fx-background-color: " + col);
 		btTimer.setStyle("-fx-background-color: " + col);
 		
