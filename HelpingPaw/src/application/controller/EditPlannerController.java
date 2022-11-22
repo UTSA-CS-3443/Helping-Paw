@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.Main;
+import application.model.Task;
 import application.model.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -121,13 +122,50 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 			}
 			
 			if (bt.getId().equals("btAdd")) {
-				//TODO: Create a new task and add it to its correct ListView
-				//TODO: Populate the ListView
+				
+				if (cbTOD.getValue() == null || txtFieldTask.getText().isEmpty()) {
+					
+				}
+				Task newTask = new Task(txtFieldTask.getText(), cbTOD.getValue());
+				Main.planner.add(newTask);
+				txtFieldTask.clear();
+				addTask(newTask);
 			}		
 
-			if (bt.getId().equals("Delete")) {
+			if (bt.getId().equals("btDelete")) {
 				//TODO: Get the task that the user has clicked on in the ListView and delete it from Main.planner
-				//TODO: Populate the ListView
+				if (listMorning.getSelectionModel().getSelectedItem() != null) {
+					
+					for (int i = 0; i < Main.planner.size(); i++) {
+						if (Main.planner.get(i).getName().equals(listMorning.getSelectionModel().getSelectedItem())) {
+							Main.planner.remove(i);
+						}
+					}
+					morningList.remove(listMorning.getSelectionModel().getSelectedItem());
+				}
+				
+				else if (listAfternoon.getSelectionModel().getSelectedItem() != null) {
+					for (int i = 0; i < Main.planner.size(); i++) {
+						if (Main.planner.get(i).getName().equals(listAfternoon.getSelectionModel().getSelectedItem())) {
+							Main.planner.remove(i);
+						}
+					}
+					afternoonList.remove(listAfternoon.getSelectionModel().getSelectedItem());
+				}
+				
+				else if (listEvening.getSelectionModel().getSelectedItem() != null) {
+					for (int i = 0; i < Main.planner.size(); i++) {
+						if (Main.planner.get(i).getName().equals(listEvening.getSelectionModel().getSelectedItem())) {
+							Main.planner.remove(i);
+						}
+					}
+					eveningList.remove(listEvening.getSelectionModel().getSelectedItem());
+				}
+					
+				listMorning.setItems(morningList);
+				listAfternoon.setItems(afternoonList);
+				listEvening.setItems(eveningList);
+				
 			}
 			
 
@@ -135,5 +173,22 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 		catch(IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void addTask(Task t) {
+		
+			if (t.getTimeOfDay().equals("morning")) {
+				morningList.add(t.getName());
+			}
+			else if (t.getTimeOfDay().equals("afternoon")) {
+				afternoonList.add(t.getName());
+			}
+			else
+				eveningList.add(t.getName());
+		
+		listMorning.setItems(morningList);
+		listAfternoon.setItems(afternoonList);
+		listEvening.setItems(eveningList);
+		
 	}
 }
