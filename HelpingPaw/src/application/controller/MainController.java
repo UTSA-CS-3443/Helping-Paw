@@ -54,7 +54,9 @@ public class MainController implements EventHandler<ActionEvent>, Initializable 
 
 	@Override
 	public void handle(ActionEvent event) {
+		FXMLLoader loader = new FXMLLoader();
 		Button bt = (Button) event.getSource();
+<<<<<<< HEAD
 
 		if (bt.getId().equals("btPlanner")) {
 
@@ -78,21 +80,32 @@ public class MainController implements EventHandler<ActionEvent>, Initializable 
 			try {
 
 				FXMLLoader loader = new FXMLLoader();
+=======
+		try {
+			if (bt.getId().equals("btOptions")) {
+>>>>>>> 139ba9416ec5e0a0ac3caf2cb02e8c15b1e575d6
 				loader.setLocation(getClass().getResource("../view/OptionsView.fxml"));		
-
-				Scene scene = new Scene(loader.load());
-
-				Main.stage.setScene(scene);
-				Main.stage.show();
-
-			} catch (IOException e) {
-				e.printStackTrace();
 			}
-		}
+			//MyPlanner is temporarily TimerView for testing purposes
+			if (bt.getId().equals("btPlanner")) {
+				loader.setLocation(getClass().getResource("../view/TimerView.fxml"));		
 
+<<<<<<< HEAD
 		if (bt.getId().equals("btExit")) {
 			Main.stage.close();
-		}
+=======
+			}		
+			if (bt.getId().equals("btExit")) {
+				Main.stage.close();
+			}
+			Scene scene = new Scene(loader.load());
 
+			Main.stage.setScene(scene);
+			Main.stage.show();
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+>>>>>>> 139ba9416ec5e0a0ac3caf2cb02e8c15b1e575d6
+		}
 	}
 }
