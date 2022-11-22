@@ -7,6 +7,8 @@ import java.util.ResourceBundle;
 
 import application.Main;
 import application.model.User;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -55,6 +57,19 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 	    
 	    @FXML
 	    ImageView imgCat;
+	    
+	    @FXML
+		ListView<String> listMorning;
+		
+		@FXML
+		ListView<String> listAfternoon;
+		
+		@FXML
+		ListView<String> listEvening;
+		
+		ObservableList<String> morningList = FXCollections.observableArrayList();
+		ObservableList<String> afternoonList = FXCollections.observableArrayList();
+		ObservableList<String> eveningList = FXCollections.observableArrayList();
 	
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		rectangleEP.setFill(Main.user.color);
@@ -66,20 +81,46 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 		File file = new File("src/images/" + Main.user.cat + "talking.png");
 		Image catImg = new Image(file.toURI().toString());
 		imgCat.setImage(catImg);
+		
+		for (int i = 0; i < Main.planner.size(); i++) {
+			if (Main.planner.get(i).getTimeOfDay().equals("morning")) {
+				morningList.add(Main.planner.get(i).getName());
+			}
+			else if (Main.planner.get(i).getTimeOfDay().equals("afternoon")) {
+				afternoonList.add(Main.planner.get(i).getName());
+			}
+			else
+				eveningList.add(Main.planner.get(i).getName());
+		}
 	}
 
 	@Override
 	public void handle(ActionEvent event) {
-		Button btChoose = (Button) event.getSource();
-		if(btChoose == btBack) {
-			try {
-				Parent root = FXMLLoader.load(getClass().getResource("../view/PlannerView.fxml"));
-				Stage window = (Stage)btBack.getScene().getWindow();
-				window.setScene(new Scene(root, 750, 750));
-			
-			} catch(IOException e) {
-			e.printStackTrace();				
+		FXMLLoader loader = new FXMLLoader();
+		Button bt = (Button) event.getSource();
+
+		try {
+			if (bt.getId().equals("btBack")) {
+				loader.setLocation(getClass().getResource("../view/PlannerView.fxml"));	
+				Scene scene = new Scene(loader.load());
+				Main.stage.setScene(scene);
+				Main.stage.show();
 			}
+			
+			if (bt.getId().equals("btAdd")) {
+				//TODO: Create a new task and add it to its correct ListView
+				//TODO: Populate the ListView
+			}		
+
+			if (bt.getId().equals("Delete")) {
+				//TODO: Get the task that the user has clicked on in the ListView and delete it from Main.planner
+				//TODO: Populate the ListView
+			}
+			
+
+		}
+		catch(IOException e) {
+			e.printStackTrace();
 		}
 	}
 }
