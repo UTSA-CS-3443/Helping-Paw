@@ -91,9 +91,6 @@ public class PlannerController implements EventHandler<ActionEvent>, Initializab
 		listAfternoon.setItems(afternoonList);
 		listEvening.setItems(eveningList);
 		
-		
-		
-		
 	}
 
 	@Override
