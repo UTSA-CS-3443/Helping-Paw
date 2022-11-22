@@ -13,8 +13,8 @@
    <children>
       <Pane layoutX="155.0" layoutY="163.0" maxHeight="750.0" maxWidth="750.0" prefHeight="750.0" prefWidth="750.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ListView fx:id="tblViewMorning" layoutX="164.0" layoutY="196.0" prefHeight="133.0" prefWidth="411.0" />
-            <ListView fx:id="tblViewAfternoon" layoutX="164.0" layoutY="328.0" prefHeight="133.0" prefWidth="411.0" />
+            <ListView fx:id="listMorning" layoutX="164.0" layoutY="196.0" prefHeight="133.0" prefWidth="411.0" />
+            <ListView fx:id="listAfternoon" layoutX="164.0" layoutY="328.0" prefHeight="133.0" prefWidth="411.0" />
             <ImageView fx:id="imgCat" fitHeight="231.0" fitWidth="230.0" layoutX="520.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../images/phil.jpeg" />
@@ -23,7 +23,7 @@
                   <Rectangle2D />
                </viewport>
             </ImageView>
-            <ListView fx:id="tblViewNight" layoutX="164.0" layoutY="460.0" prefHeight="133.0" prefWidth="411.0" />
+            <ListView fx:id="listEvening" editable="true" layoutX="164.0" layoutY="460.0" prefHeight="133.0" prefWidth="411.0" />
             <ImageView fitHeight="69.0" fitWidth="63.0" layoutX="594.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../images/sun.png" />
@@ -39,6 +39,17 @@
                   <Image url="@../../images/moon.png" />
                </image>
             </ImageView>
+            <Button fx:id="btEdit" layoutX="65.0" layoutY="650.0" mnemonicParsing="false" onAction="#handle" onMouseClicked="#handle" prefHeight="59.0" prefWidth="147.0" style="-fx-background-color: white;" text="edit planner" textAlignment="CENTER" textFill="#836b60">
+               <font>
+                  <Font name="October Devanagari Medium" size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="btTimer" layoutX="282.0" layoutY="651.0" mnemonicParsing="false" onAction="#handle" onMouseClicked="#handle" prefHeight="59.0" prefWidth="147.0" style="-fx-background-color: white;" text="start a timer!" textAlignment="CENTER" textFill="#836b60">
+               <font>
+                  <Font name="October Devanagari Medium" size="19.0" />
+               </font>
+            </Button>
+            <Text fx:id="txtCat" layoutX="568.0" layoutY="587.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click on a task, then start a timer!" textAlignment="CENTER" wrappingWidth="134.4290771484375" />
          </children>
       </Pane>
       <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="#ffdcdc" height="157.0" stroke="TRANSPARENT" strokeType="INSIDE" width="750.0" AnchorPane.leftAnchor="0.0" />
@@ -47,5 +58,10 @@
             <Font name="October Devanagari Medium" size="60.0" />
          </font>
       </Text>
+      <Button fx:id="btBack" layoutX="20.0" layoutY="52.0" mnemonicParsing="false" onAction="#handle" onMouseClicked="#handle" prefHeight="59.0" prefWidth="147.0" style="-fx-background-color: white;" text="Back" textAlignment="CENTER" textFill="#836b60">
+         <font>
+            <Font name="October Devanagari Medium" size="35.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -1,5 +1,8 @@
 package application;
 	
+import java.util.ArrayList;
+
+import application.model.Task;
 import application.model.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +14,7 @@ import javafx.scene.paint.Color;
 public class Main extends Application {
 	
 	public static User user = new User(Color.rgb(255, 214, 218), "phil");
+	public static ArrayList<Task> planner = new ArrayList<Task>();
 	public static Stage stage; 
 	
 	@Override

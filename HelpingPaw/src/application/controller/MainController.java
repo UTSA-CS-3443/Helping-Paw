@@ -67,7 +67,7 @@ public class MainController implements EventHandler<ActionEvent>, Initializable 
 			}		
 
 			if (bt.getId().equals("btExit")) {
-				Main.stage.close();
+				System.exit(0);
 			}
 			
 			Scene scene = new Scene(loader.load());
