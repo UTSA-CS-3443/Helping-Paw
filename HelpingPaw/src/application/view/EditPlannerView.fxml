@@ -17,7 +17,7 @@
       <ImageView fitHeight="69.0" fitWidth="63.0" layoutX="594.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="69.0" fitWidth="63.0" layoutX="594.0" layoutY="361.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="69.0" fitWidth="63.0" layoutX="594.0" layoutY="494.0" pickOnBounds="true" preserveRatio="true" />
-      <TextField fx:id="tfTask" layoutX="170.0" layoutY="632.0" onAction="#handle" prefHeight="69.0" prefWidth="299.0" />
+      <TextField fx:id="tfTask" layoutX="170.0" layoutY="650.0" onAction="#handle" prefHeight="51.0" prefWidth="299.0" />
       <Button fx:id="btDelete" layoutX="479.0" layoutY="670.0" mnemonicParsing="false" onAction="#handle" prefHeight="33.0" prefWidth="110.0" style="-fx-background-color: #ffdcdc;" text="Delete" textFill="#836b60" />
       <Button fx:id="btBack" layoutX="36.0" layoutY="29.0" mnemonicParsing="false" onAction="#handle" prefHeight="22.0" prefWidth="148.0" style="-fx-background-color: #ffffff;" text="Back" textAlignment="CENTER" textFill="#836b60">
          <font>

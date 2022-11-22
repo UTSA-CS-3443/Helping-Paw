@@ -103,9 +103,9 @@ public class PlannerController implements EventHandler<ActionEvent>, Initializab
 				loader.setLocation(getClass().getResource("../view/Main.fxml"));	
 			}
 			
-//			if (bt.getId().equals("btEdit")) {
-//				loader.setLocation(getClass().getResource("../view/EditPlannerView.fxml"));		
-//			}		
+			if (bt.getId().equals("btEdit")) {
+				loader.setLocation(getClass().getResource("../view/EditPlannerView.fxml"));		
+			}		
 
 			if (bt.getId().equals("btTimer")) {
 				loader.setLocation(getClass().getResource("../view/TimerView.fxml"));	
