@@ -16,6 +16,7 @@ public class Main extends Application {
 	public static User user = new User(Color.rgb(255, 214, 218), "phil");
 	public static ArrayList<Task> planner = new ArrayList<Task>();
 	public static Stage stage; 
+	public static Task currTask = null;
 	
 	@Override
 	public void start(Stage primaryStage) {
