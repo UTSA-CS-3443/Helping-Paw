@@ -67,6 +67,12 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 		@FXML
 		ListView<String> listEvening;
 		
+		@FXML
+		TextField txtFieldTask;
+		
+		@FXML
+		ChoiceBox<String> cbTOD = new ChoiceBox<String>();
+		
 		ObservableList<String> morningList = FXCollections.observableArrayList();
 		ObservableList<String> afternoonList = FXCollections.observableArrayList();
 		ObservableList<String> eveningList = FXCollections.observableArrayList();
@@ -92,6 +98,13 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 			else
 				eveningList.add(Main.planner.get(i).getName());
 		}
+		
+		listMorning.setItems(morningList);
+		listAfternoon.setItems(afternoonList);
+		listEvening.setItems(eveningList);
+		
+		cbTOD.getItems().addAll("morning", "afternoon", "evening");
+		
 	}
 
 	@Override

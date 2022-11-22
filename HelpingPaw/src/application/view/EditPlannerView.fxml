@@ -20,14 +20,14 @@
          </viewport>
       </ImageView>
       <Rectangle fx:id="rectangleEP" arcHeight="5.0" arcWidth="5.0" fill="#ffdcdc" height="157.0" stroke="TRANSPARENT" strokeType="INSIDE" width="750.0" />
-      <ListView fx:id="tblViewMorningEP" layoutX="164.0" layoutY="196.0" prefHeight="133.0" prefWidth="411.0" />
-      <ListView fx:id="tblViewAfternoonEP" layoutX="164.0" layoutY="329.0" prefHeight="133.0" prefWidth="411.0" />
-      <ListView fx:id="tblViewNightEP" layoutX="164.0" layoutY="462.0" prefHeight="133.0" prefWidth="411.0" />
+      <ListView fx:id="listMorning" layoutX="164.0" layoutY="196.0" prefHeight="133.0" prefWidth="411.0" />
+      <ListView fx:id="listAfternoon" layoutX="164.0" layoutY="329.0" prefHeight="133.0" prefWidth="411.0" />
+      <ListView fx:id="listEvening" layoutX="164.0" layoutY="462.0" prefHeight="133.0" prefWidth="411.0" />
       <ImageView fitHeight="69.0" fitWidth="63.0" layoutX="594.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/sun.png" />
          </image></ImageView>
-      <TextField fx:id="tfTask" layoutX="170.0" layoutY="615.0" onAction="#handle" prefHeight="33.0" prefWidth="256.0" />
+      <TextField fx:id="tfTask" layoutX="119.0" layoutY="615.0" onAction="#handle" prefHeight="33.0" prefWidth="256.0" />
       <Button fx:id="btDelete" layoutX="479.0" layoutY="670.0" mnemonicParsing="false" onAction="#handle" prefHeight="33.0" prefWidth="110.0" style="-fx-background-color: #ffdcdc;" text="Delete" textFill="#836b60" />
       <Button fx:id="btBack" layoutX="36.0" layoutY="29.0" mnemonicParsing="false" onAction="#handle" prefHeight="22.0" prefWidth="148.0" style="-fx-background-color: #ffffff;" text="Back" textAlignment="CENTER" textFill="#836b60">
          <font>
@@ -35,7 +35,7 @@
          </font>
       </Button>
       <Button fx:id="btAdd" layoutX="479.0" layoutY="616.0" mnemonicParsing="false" onAction="#handle" prefHeight="33.0" prefWidth="110.0" style="-fx-background-color: #ffdcdc;" text="Add" textFill="#836b60" />
-      <ChoiceBox fx:id="choiceTOD" layoutX="434.0" layoutY="618.0" prefHeight="27.0" prefWidth="37.0" />
+      <ChoiceBox fx:id="cbTOD" layoutX="384.0" layoutY="618.0" prefHeight="27.0" prefWidth="87.0" />
       <ImageView fitHeight="69.0" fitWidth="63.0" layoutX="591.0" layoutY="494.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/moon.png" />
