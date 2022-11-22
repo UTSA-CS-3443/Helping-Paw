@@ -54,30 +54,27 @@ public class MainController implements EventHandler<ActionEvent>, Initializable 
 
 	@Override
 	public void handle(ActionEvent event) {
+		FXMLLoader loader = new FXMLLoader();
 		Button bt = (Button) event.getSource();
-
-		if (bt.getId().equals("btOptions")) {
-
-			try {
-
-				FXMLLoader loader = new FXMLLoader();
+		try {
+			if (bt.getId().equals("btOptions")) {
 				loader.setLocation(getClass().getResource("../view/OptionsView.fxml"));		
-
-				Scene scene = new Scene(loader.load());
-
-				Main.stage.setScene(scene);
-				Main.stage.show();
-
-			} catch (IOException e) {
-				e.printStackTrace();
 			}
+			//MyPlanner is temporarily TimerView for testing purposes
+			if (bt.getId().equals("btPlanner")) {
+				loader.setLocation(getClass().getResource("../view/TimerView.fxml"));		
+
+			}		
+			if (bt.getId().equals("btExit")) {
+				Main.stage.close();
+			}
+			Scene scene = new Scene(loader.load());
+
+			Main.stage.setScene(scene);
+			Main.stage.show();
 		}
-
-		//TODO: if user clicks on MyPlanner button
-
-		if (bt.getId().equals("btExit")) {
-			Main.stage.close();
+		catch(IOException e) {
+			e.printStackTrace();
 		}
-
 	}
 }
