@@ -75,7 +75,7 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 			try {
 				Parent root = FXMLLoader.load(getClass().getResource("../view/PlannerView.fxml"));
 				Stage window = (Stage)btBack.getScene().getWindow();
-				window.setScene(new Scene(root, 800, 800));
+				window.setScene(new Scene(root, 750, 750));
 			
 			} catch(IOException e) {
 			e.printStackTrace();				
