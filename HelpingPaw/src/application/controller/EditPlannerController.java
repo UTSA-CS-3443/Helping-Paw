@@ -29,66 +29,66 @@ import javafx.stage.Stage;
 
 
 public class EditPlannerController implements EventHandler<ActionEvent>, Initializable{
-		@FXML
-	    TextField tfTask;
+	@FXML
+	TextField tfTask;
 
-	    @FXML
-	    Button btBack;
+	@FXML
+	Button btBack;
 
-	    @FXML
-	    Button btAdd;
+	@FXML
+	Button btAdd;
 
-	    @FXML
-	    ListView<String> tblViewNightEP;
-	    
-	    @FXML
-	    ListView<String> tblViewAfternoonEP;
+	@FXML
+	ListView<String> tblViewNightEP;
 
-	    @FXML
-	    ListView<String> tblViewMorningEP;
-	    
-	    @FXML
-	    ChoiceBox<String> choiceTOD;
-	    
-	    @FXML
-	    Rectangle rectangleEP;
+	@FXML
+	ListView<String> tblViewAfternoonEP;
 
-	    @FXML
-	    Button btDelete;
-	    
-	    @FXML
-	    ImageView imgCat;
-	    
-	    @FXML
-		ListView<String> listMorning;
-		
-		@FXML
-		ListView<String> listAfternoon;
-		
-		@FXML
-		ListView<String> listEvening;
-		
-		@FXML
-		TextField txtFieldTask;
-		
-		@FXML
-		ChoiceBox<String> cbTOD = new ChoiceBox<String>();
-		
-		ObservableList<String> morningList = FXCollections.observableArrayList();
-		ObservableList<String> afternoonList = FXCollections.observableArrayList();
-		ObservableList<String> eveningList = FXCollections.observableArrayList();
-	
+	@FXML
+	ListView<String> tblViewMorningEP;
+
+	@FXML
+	ChoiceBox<String> choiceTOD;
+
+	@FXML
+	Rectangle rectangleEP;
+
+	@FXML
+	Button btDelete;
+
+	@FXML
+	ImageView imgCat;
+
+	@FXML
+	ListView<String> listMorning;
+
+	@FXML
+	ListView<String> listAfternoon;
+
+	@FXML
+	ListView<String> listEvening;
+
+	@FXML
+	TextField txtFieldTask;
+
+	@FXML
+	ChoiceBox<String> cbTOD = new ChoiceBox<String>();
+
+	ObservableList<String> morningList = FXCollections.observableArrayList();
+	ObservableList<String> afternoonList = FXCollections.observableArrayList();
+	ObservableList<String> eveningList = FXCollections.observableArrayList();
+
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		rectangleEP.setFill(Main.user.color);
 		String col = User.colorToString(Main.user.color);
-		
+
 		btDelete.setStyle("-fx-background-color: " + col);
 		btAdd.setStyle("-fx-background-color: " + col);
-		
+
 		File file = new File("src/images/" + Main.user.cat + "talking.png");
 		Image catImg = new Image(file.toURI().toString());
 		imgCat.setImage(catImg);
-		
+
 		for (int i = 0; i < Main.planner.size(); i++) {
 			if (Main.planner.get(i).getTimeOfDay().equals("morning")) {
 				morningList.add(Main.planner.get(i).getName());
@@ -99,13 +99,13 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 			else
 				eveningList.add(Main.planner.get(i).getName());
 		}
-		
+
 		listMorning.setItems(morningList);
 		listAfternoon.setItems(afternoonList);
 		listEvening.setItems(eveningList);
-		
+
 		cbTOD.getItems().addAll("morning", "afternoon", "evening");
-		
+
 	}
 
 	@Override
@@ -120,22 +120,25 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 				Main.stage.setScene(scene);
 				Main.stage.show();
 			}
-			
+
 			if (bt.getId().equals("btAdd")) {
-				
-				if (cbTOD.getValue() == null || txtFieldTask.getText().isEmpty()) {
+
+				if (cbTOD.getValue() != null || !txtFieldTask.getText().isEmpty()) {
+					Task newTask = new Task(txtFieldTask.getText(), cbTOD.getValue());
+					Main.planner.add(newTask);
+					txtFieldTask.clear();
+					addTask(newTask);
+				}
+				else {
+					//TODO: cat gets mad af
 					
 				}
-				Task newTask = new Task(txtFieldTask.getText(), cbTOD.getValue());
-				Main.planner.add(newTask);
-				txtFieldTask.clear();
-				addTask(newTask);
 			}		
 
 			if (bt.getId().equals("btDelete")) {
 				//TODO: Get the task that the user has clicked on in the ListView and delete it from Main.planner
 				if (listMorning.getSelectionModel().getSelectedItem() != null) {
-					
+
 					for (int i = 0; i < Main.planner.size(); i++) {
 						if (Main.planner.get(i).getName().equals(listMorning.getSelectionModel().getSelectedItem())) {
 							Main.planner.remove(i);
@@ -143,7 +146,7 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 					}
 					morningList.remove(listMorning.getSelectionModel().getSelectedItem());
 				}
-				
+
 				else if (listAfternoon.getSelectionModel().getSelectedItem() != null) {
 					for (int i = 0; i < Main.planner.size(); i++) {
 						if (Main.planner.get(i).getName().equals(listAfternoon.getSelectionModel().getSelectedItem())) {
@@ -152,7 +155,7 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 					}
 					afternoonList.remove(listAfternoon.getSelectionModel().getSelectedItem());
 				}
-				
+
 				else if (listEvening.getSelectionModel().getSelectedItem() != null) {
 					for (int i = 0; i < Main.planner.size(); i++) {
 						if (Main.planner.get(i).getName().equals(listEvening.getSelectionModel().getSelectedItem())) {
@@ -161,34 +164,34 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 					}
 					eveningList.remove(listEvening.getSelectionModel().getSelectedItem());
 				}
-					
+
 				listMorning.setItems(morningList);
 				listAfternoon.setItems(afternoonList);
 				listEvening.setItems(eveningList);
-				
+
 			}
-			
+
 
 		}
 		catch(IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void addTask(Task t) {
-		
-			if (t.getTimeOfDay().equals("morning")) {
-				morningList.add(t.getName());
-			}
-			else if (t.getTimeOfDay().equals("afternoon")) {
-				afternoonList.add(t.getName());
-			}
-			else
-				eveningList.add(t.getName());
-		
+
+		if (t.getTimeOfDay().equals("morning")) {
+			morningList.add(t.getName());
+		}
+		else if (t.getTimeOfDay().equals("afternoon")) {
+			afternoonList.add(t.getName());
+		}
+		else
+			eveningList.add(t.getName());
+
 		listMorning.setItems(morningList);
 		listAfternoon.setItems(afternoonList);
 		listEvening.setItems(eveningList);
-		
+
 	}
 }
