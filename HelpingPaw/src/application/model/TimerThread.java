@@ -64,7 +64,6 @@ public class TimerThread extends Thread{
 			try {
 				TimeUnit.SECONDS.sleep(1);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			if(currSec-1==0 && currMin>0) {
