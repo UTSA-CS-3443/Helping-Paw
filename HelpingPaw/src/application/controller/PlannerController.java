@@ -153,7 +153,7 @@ public class PlannerController implements EventHandler<ActionEvent>, Initializab
 
 	}
 
-	//checks if something is selected in planner
+	//checks if something is selected in any of the listViews
 	public boolean isSelected() {
 		if (listMorning.getSelectionModel().getSelectedItem() == null && listAfternoon.getSelectionModel().getSelectedItem() == null &&
 				listEvening.getSelectionModel().getSelectedItem() == null) {
@@ -161,6 +161,5 @@ public class PlannerController implements EventHandler<ActionEvent>, Initializab
 		}
 		return true;
 	}
-
 
 }

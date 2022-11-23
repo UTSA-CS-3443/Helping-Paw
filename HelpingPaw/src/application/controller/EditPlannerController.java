@@ -3,6 +3,7 @@ package application.controller;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import application.Main;
@@ -206,6 +207,8 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 		listMorning.setItems(morningList);
 		listAfternoon.setItems(afternoonList);
 		listEvening.setItems(eveningList);
+		
+		sortPlanner();
 
 	}
 	
@@ -228,5 +231,29 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 			eveningList.remove(task);
 		}
 			
+	}
+	
+	//Sorts planner by time of day
+	public void sortPlanner() {
+		ArrayList<Task> sortedPlanner = new ArrayList<Task>();
+		for (int i = 0; i < Main.planner.size(); i++) {
+			
+			if (Main.planner.get(i).getTimeOfDay().equals("morning"))
+				sortedPlanner.add(Main.planner.get(i));
+		}
+		
+		for (int i = 0; i < Main.planner.size(); i++) {
+			
+			if (Main.planner.get(i).getTimeOfDay().equals("afternoon"))
+				sortedPlanner.add(Main.planner.get(i));
+		}
+		
+		for (int i = 0; i < Main.planner.size(); i++) {
+			
+			if (Main.planner.get(i).getTimeOfDay().equals("evening"))
+				sortedPlanner.add(Main.planner.get(i));
+		}
+		
+		Main.planner = sortedPlanner;
 	}
 }
