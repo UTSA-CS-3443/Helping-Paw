@@ -13,6 +13,7 @@ public class TimerThread extends Thread{
 	long min;
 	long currMin = 200;
 	long currSec = 200;
+	int x = 0;
 	Duration total;
 	public TimerThread(long m) {
 		this.min = m;
@@ -63,7 +64,6 @@ public class TimerThread extends Thread{
 			try {
 				TimeUnit.SECONDS.sleep(1);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			if(currSec-1==0 && currMin>0) {
