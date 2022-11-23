@@ -24,6 +24,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
@@ -58,6 +59,9 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 
 	@FXML
 	ImageView imgCat;
+	
+	@FXML
+	Text txtCat;
 
 	@FXML
 	ListView<String> listMorning;
@@ -88,6 +92,13 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 		File file = new File("src/images/" + Main.user.cat + "talking.png");
 		Image catImg = new Image(file.toURI().toString());
 		imgCat.setImage(catImg);
+		if (Main.planner.isEmpty()) {
+			txtCat.setText("Type in your task, select a time of day to work on it, then click 'add task'!");
+		}
+		
+		else {
+			txtCat.setText("Psst! To delete a task, click on the task, then click 'delete'.");
+		}
 
 		for (int i = 0; i < Main.planner.size(); i++) {
 			if (Main.planner.get(i).getTimeOfDay().equals("morning")) {
@@ -124,13 +135,23 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 			if (bt.getId().equals("btAdd")) {
 
 				if (cbTOD.getValue() != null && !txtFieldTask.getText().isEmpty()) {
+					File file = new File("src/images/" + Main.user.cat + "talking.png");
+					Image catImg = new Image(file.toURI().toString());
+					imgCat.setImage(catImg);
+					
 					Task newTask = new Task(txtFieldTask.getText(), cbTOD.getValue());
 					Main.planner.add(newTask);
 					txtFieldTask.clear();
 					addTask(newTask);
+					
+					txtCat.setText("Your task has been added!");
 				}
+				
 				else {
-					//TODO: cat gets mad af
+					File file = new File("src/images/" + Main.user.cat + "wtf.png");
+					Image catImg = new Image(file.toURI().toString());
+					imgCat.setImage(catImg);
+					txtCat.setText("Make sure you enter a task and select a time of day...");
 					
 				}
 			}		
@@ -145,6 +166,7 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 						}
 					}
 					morningList.remove(listMorning.getSelectionModel().getSelectedItem());
+					txtCat.setText("Your task has been deleted.");
 				}
 
 				else if (listAfternoon.getSelectionModel().getSelectedItem() != null) {
@@ -154,6 +176,7 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 						}
 					}
 					afternoonList.remove(listAfternoon.getSelectionModel().getSelectedItem());
+					txtCat.setText("Your task has been deleted.");
 				}
 
 				else if (listEvening.getSelectionModel().getSelectedItem() != null) {
@@ -163,6 +186,7 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 						}
 					}
 					eveningList.remove(listEvening.getSelectionModel().getSelectedItem());
+					txtCat.setText("Your task has been deleted.");
 				}
 
 				listMorning.setItems(morningList);
