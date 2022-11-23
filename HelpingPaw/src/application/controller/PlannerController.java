@@ -107,7 +107,31 @@ public class PlannerController implements EventHandler<ActionEvent>, Initializab
 			}		
 
 			if (bt.getId().equals("btTimer")) {
+				if (listMorning.getSelectionModel().getSelectedItem() != null) {
+					txtCat.setText("Invalid, please select a task to begin");
+				}
+				Main.currTask = listMorning.getSelectionModel().getSelectedItem();
 				loader.setLocation(getClass().getResource("../view/TimerView.fxml"));	
+			}
+			
+			if (bt.getId().equals("btTimer")) {
+				if (listAfternoon.getSelectionModel().getSelectedItem() != null) {
+					txtCat.setText("Invalid, please select a task to begin");
+				}
+				Main.currTask = listMorning.getSelectionModel().getSelectedItem();
+				loader.setLocation(getClass().getResource("../view/TimerView.fxml"));	
+				
+				
+			}
+			
+			if (bt.getId().equals("btTimer")) {
+				if (listEvening.getSelectionModel().getSelectedItem() != null) {
+					txtCat.setText("Invalid, please select a task to begin");
+				}
+				Main.currTask = listMorning.getSelectionModel().getSelectedItem();
+				loader.setLocation(getClass().getResource("../view/TimerView.fxml"));	
+				
+				
 			}
 			
 			Scene scene = new Scene(loader.load());

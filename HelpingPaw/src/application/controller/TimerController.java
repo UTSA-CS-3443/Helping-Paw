@@ -69,6 +69,7 @@ public class TimerController implements EventHandler<ActionEvent>  {
 		imgCat.setImage(catImg);
 		txtCat.setText("Click start button when you are ready, and remember try your best! You got this!");
 
+		//get the name of the task to display on the timer view
 
 	}
 	public static void updateTime(String timeLeft) {
@@ -92,13 +93,12 @@ public class TimerController implements EventHandler<ActionEvent>  {
 			done.setVisible(true);
 			resume.setVisible(false);
 			pause.setVisible(true);
-			txtCat.setText("");
 			System.out.println("Starting OG timer thread");
 			currTimer.start();
 		}
 		if(p.getId().equals("pause")) {
 			currTimer.stopwatch.stop();
-			System.out.println("Stopping OG timer thread at " + currTimer.currMin + ":" + currTimer.currSec);
+			System.out.println("Stopping OG timer thread");
 			long[] tim = currTimer.pauseTimer();
 			TimerThread t = new TimerThread(tim[0],tim[1]);
 			currTimer = t;
@@ -107,7 +107,6 @@ public class TimerController implements EventHandler<ActionEvent>  {
 			resume.setVisible(true);
 		}
 		else if(p.getId().equals("done")) {
-			txtCat.setText("Click start button when you are ready, and remember try your best! You got this!");
 			currTimer.stopwatch.reset();
 			timer.setVisible(false);
 			input.setVisible(true);
