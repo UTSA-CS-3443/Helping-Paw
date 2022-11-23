@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -16,11 +18,20 @@
       <Button fx:id="done" layoutX="250.0" layoutY="609.0" mnemonicParsing="false" onAction="#handle" prefHeight="33.0" prefWidth="110.0" style="-fx-background-color: #ffdcdc;" text="Done" textFill="#836b60" />
       <Button fx:id="resume" layoutX="415.0" layoutY="609.0" mnemonicParsing="false" onAction="#handle" prefHeight="33.0" prefWidth="110.0" style="-fx-background-color: #ffdcdc;" text="Resume" textFill="#836b60" />
       <Button fx:id="start" layoutX="415.0" layoutY="609.0" mnemonicParsing="false" onAction="#handle" prefHeight="33.0" prefWidth="110.0" style="-fx-background-color: #ffdcdc;" text="Start" textFill="#836b60" />
-      <Rectangle fx:id="rectangleTV" arcHeight="5.0" arcWidth="5.0" fill="#ffdcdc" height="157.0" stroke="TRANSPARENT" strokeType="INSIDE" width="750.0" />
-      <Button fx:id="back" layoutX="24.0" layoutY="49.0" mnemonicParsing="false" onAction="#handle" onMouseClicked="#handle" prefHeight="59.0" prefWidth="147.0" style="-fx-background-color: white;" text="Back" textAlignment="CENTER" textFill="#836b60">
+      <Rectangle fx:id="rectangleTV" arcHeight="5.0" arcWidth="5.0" fill="#ffdcdc" height="168.0" stroke="TRANSPARENT" strokeType="INSIDE" width="760.0" />
+      <Button fx:id="back" layoutX="24.0" layoutY="49.0" mnemonicParsing="false" onAction="#handle" onMouseClicked="#handle" prefHeight="59.0" prefWidth="147.0" style="-fx-background-color: #ffffff;" text="Back" textAlignment="CENTER" textFill="#836b60">
          <font>
             <Font name="October Devanagari Medium" size="35.0" />
          </font>
       </Button>
+      <ImageView fx:id="imgCat" fitHeight="231.0" fitWidth="230.0" layoutX="530.0" layoutY="530.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/phil.jpeg" />
+         </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+      </ImageView>
+      <Text fx:id="txtCat" layoutX="584.0" layoutY="556.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Try your best! You got this!" textAlignment="CENTER" wrappingWidth="134.4290771484375" />
    </children>
 </AnchorPane>

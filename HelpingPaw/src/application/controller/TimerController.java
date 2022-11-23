@@ -1,11 +1,13 @@
 package application.controller;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import application.Main;
 import application.model.TimerThread;
+import application.model.User;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -16,8 +18,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 public class TimerController implements EventHandler<ActionEvent>  {
@@ -37,12 +41,34 @@ public class TimerController implements EventHandler<ActionEvent>  {
 	Button resume;
 	@FXML
 	Button back;
+	@FXML
+	ImageView imgCat;
+	@FXML
+	Text txtCat;
+	
+	@FXML
+	Rectangle rectangleTV;
 	TimerThread currTimer;
 	public void initialize() {
 		timer.setText("");
 		resume.setVisible(false);
 		pause.setVisible(false);
 		done.setVisible(false);
+		
+		rectangleTV.setFill(Main.user.color);
+		String col = User.colorToString(Main.user.color);
+
+		pause.setStyle("-fx-background-color: " + col);
+		start.setStyle("-fx-background-color: " + col);
+		done.setStyle("-fx-background-color: " + col);
+		resume.setStyle("-fx-background-color: " + col);
+		
+
+		File file = new File("src/images/" + Main.user.cat + "talking.png");
+		Image catImg = new Image(file.toURI().toString());
+		imgCat.setImage(catImg);
+		txtCat.setText("Click start button when you are ready, and remember try your best! You got this!");
+
 
 	}
 	public static void updateTime(String timeLeft) {
