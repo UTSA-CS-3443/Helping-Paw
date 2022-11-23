@@ -47,16 +47,17 @@ public class TimerController implements EventHandler<ActionEvent>  {
 
 	@FXML
 	Rectangle rectangleTV;
-	TimerThread currTimer;
-	static double ii = 0.6;
+	static TimerThread currTimer;
+
 	public void initialize() {
+		String col = User.colorToString(Main.user.color);
+		pb.setStyle(" -fx-progress-color: " + col +";");
 		timer.setText("");
 		resume.setVisible(false);
 		pause.setVisible(false);
 		done.setVisible(false);
 
 		rectangleTV.setFill(Main.user.color);
-		String col = User.colorToString(Main.user.color);
 
 		pause.setStyle("-fx-background-color: " + col);
 		start.setStyle("-fx-background-color: " + col);
@@ -73,14 +74,21 @@ public class TimerController implements EventHandler<ActionEvent>  {
 		//get the name of the task to display on the timer view
 
 	}
-	public static void updateTime(String timeLeft) {
-		Node ts = Main.stage.getScene().lookup("#timer");
-		if(ts != null && timeLeft!=null) {
-			((Text) ts).setText(timeLeft);
+	public static void updateTime(String timeLeft, Double p) {
+		try {
+			if(currTimer.isRunning()) {
+				Node ts = Main.stage.getScene().lookup("#timer");
+				if(ts != null && timeLeft!=null) {
+					((Text) ts).setText(timeLeft);
+				}
+				Node bar = Main.stage.getScene().lookup("#pb");
+				System.out.println(p);
+				((ProgressIndicator) bar).setProgress(p);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		Node bar = Main.stage.getScene().lookup("#pb");
-		ii+=ii;
-		((ProgressIndicator) bar).setProgress(ii);
 
 	}
 	@Override
@@ -89,7 +97,6 @@ public class TimerController implements EventHandler<ActionEvent>  {
 		if(p.getId().equals("start")) {
 			timer.setVisible(true);
 			long m = Long.parseLong(input.getText());
-			ii*=m;
 			TimerThread t = new TimerThread(m);
 			currTimer = t;
 			input.clear();
@@ -109,7 +116,7 @@ public class TimerController implements EventHandler<ActionEvent>  {
 			currTimer.stopwatch.stop();
 
 			long[] tim = currTimer.pauseTimer();
-			TimerThread t = new TimerThread(tim[0],tim[1]);
+			TimerThread t = new TimerThread(tim[0],tim[1],currTimer.getTotalSec(),currTimer.getCalcSec());
 			currTimer = t;
 			pause.setVisible(false);
 			done.setVisible(false);
@@ -124,6 +131,8 @@ public class TimerController implements EventHandler<ActionEvent>  {
 			done.setVisible(false);
 			resume.setVisible(false);
 			start.setVisible(true);
+			pb.setProgress(0.0);
+			pb.setProgress(0.0);
 		}
 		else if(p.getId().equals("resume")) {
 			done.setVisible(true);
@@ -139,11 +148,8 @@ public class TimerController implements EventHandler<ActionEvent>  {
 				Main.stage.setScene(scene);
 				Main.stage.show();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
-
 		}
 	}
 	public void loadNextTask() {
