@@ -24,6 +24,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
@@ -70,6 +71,9 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 
 	@FXML
 	TextField txtFieldTask;
+	
+	@FXML
+	Text txtCat;
 
 	@FXML
 	ChoiceBox<String> cbTOD = new ChoiceBox<String>();
@@ -131,7 +135,7 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 				}
 				else {
 					//TODO: cat gets mad af
-					
+					txtCat.setText("you must select time of day to proceed have, dummy!");
 				}
 			}		
 
