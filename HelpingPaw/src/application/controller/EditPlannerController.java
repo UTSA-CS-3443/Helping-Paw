@@ -74,6 +74,7 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 
 	@FXML
 	TextField txtFieldTask;
+	
 
 	@FXML
 	ChoiceBox<String> cbTOD = new ChoiceBox<String>();
@@ -148,11 +149,12 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 				}
 				
 				else {
+
 					File file = new File("src/images/" + Main.user.cat + "wtf.png");
 					Image catImg = new Image(file.toURI().toString());
 					imgCat.setImage(catImg);
-					txtCat.setText("Make sure you enter a task and select a time of day...");
-					
+					txtCat.setText("You must select a time of day to proceed, silly goose! Try again.");
+
 				}
 			}		
 

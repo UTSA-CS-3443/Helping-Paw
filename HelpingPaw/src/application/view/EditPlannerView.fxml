@@ -45,6 +45,6 @@
             <Image url="@../../images/cloud.png" />
          </image>
       </ImageView>
-      <Text fx:id="txtCat" layoutX="600.0" layoutY="580.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type in your task, select the time of day you want to do that task, then click Add!" textAlignment="CENTER" wrappingWidth="143.63748168945312" />
+      <Text fx:id="txtCat" layoutX="578.0" layoutY="589.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter a task and select a Time of Day!" textAlignment="CENTER" wrappingWidth="134.4290771484375" />
    </children>
 </AnchorPane>
