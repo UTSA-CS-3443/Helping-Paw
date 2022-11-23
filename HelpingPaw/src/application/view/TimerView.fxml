@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="750.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.TimerController">
+<AnchorPane prefHeight="750.0" prefWidth="750.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.TimerController">
    <children>
       <TextField fx:id="input" layoutX="243.0" layoutY="613.0" prefHeight="19.0" prefWidth="125.0" />
       <Text fx:id="zero" layoutX="375.0" layoutY="630.0" strokeType="OUTSIDE" strokeWidth="0.0" text=": 00" wrappingWidth="49.0" />

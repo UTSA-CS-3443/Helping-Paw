@@ -11,8 +11,8 @@ public class TimerThread extends Thread{
 	long duration = 0;
 	long millis = TimeUnit.MILLISECONDS.convert(1L,TimeUnit.SECONDS);
 	long min;
-	long currMin = 200;
-	long currSec = 200;
+	public long currMin = 200;
+	public long currSec = 200;
 	int x = 0;
 	Duration total;
 	public TimerThread(long m) {
@@ -31,11 +31,7 @@ public class TimerThread extends Thread{
 	}
 
 	public long[] pauseTimer() {
-		Duration elapsed = Duration.ofSeconds(stopwatch.elapsed(TimeUnit.SECONDS));
 		stopwatch.reset();
-		long totalSec = total.getSeconds()-elapsed.getSeconds();
-		currMin = totalSec/60;
-		currSec = totalSec%60;
 		long[] dur = {currMin,currSec};
 		return dur;
 	}
@@ -49,7 +45,7 @@ public class TimerThread extends Thread{
 		}
 		else {
 			if(currSec>10) {
-				System.out.println("Unpaused at " + currMin + ":" + currSec);
+				System.out.println("Unpaused Timer at " + currMin + ":" + currSec);
 				application.controller.TimerController.updateTime(currMin+":"+currSec);
 			}
 			else {

@@ -92,12 +92,13 @@ public class TimerController implements EventHandler<ActionEvent>  {
 			done.setVisible(true);
 			resume.setVisible(false);
 			pause.setVisible(true);
+			txtCat.setText("");
 			System.out.println("Starting OG timer thread");
 			currTimer.start();
 		}
 		if(p.getId().equals("pause")) {
 			currTimer.stopwatch.stop();
-			System.out.println("Stopping OG timer thread");
+			System.out.println("Stopping OG timer thread at " + currTimer.currMin + ":" + currTimer.currSec);
 			long[] tim = currTimer.pauseTimer();
 			TimerThread t = new TimerThread(tim[0],tim[1]);
 			currTimer = t;
@@ -106,6 +107,7 @@ public class TimerController implements EventHandler<ActionEvent>  {
 			resume.setVisible(true);
 		}
 		else if(p.getId().equals("done")) {
+			txtCat.setText("Click start button when you are ready, and remember try your best! You got this!");
 			currTimer.stopwatch.reset();
 			timer.setVisible(false);
 			input.setVisible(true);
@@ -125,7 +127,7 @@ public class TimerController implements EventHandler<ActionEvent>  {
 		if(p.getId().equals("back")) {
 			FXMLLoader loader = new FXMLLoader();
 			try {
-				loader.setLocation(getClass().getResource("view/PlannerView.fxml"));
+				loader.setLocation(getClass().getResource("../view/PlannerView.fxml"));
 				Scene scene = new Scene(loader.load());
 				Main.stage.setScene(scene);
 				Main.stage.show();
