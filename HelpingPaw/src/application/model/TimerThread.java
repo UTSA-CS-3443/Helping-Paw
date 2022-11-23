@@ -7,7 +7,7 @@ import java.time.temporal.ChronoUnit;
 import com.google.common.base.Stopwatch;
 
 public class TimerThread extends Thread{
-	Stopwatch stopwatch = Stopwatch.createUnstarted();
+	public Stopwatch stopwatch = Stopwatch.createUnstarted();
 	long duration = 0;
 	long millis = TimeUnit.MILLISECONDS.convert(1L,TimeUnit.SECONDS);
 	long min;
@@ -31,36 +31,32 @@ public class TimerThread extends Thread{
 	}
 
 	public long[] pauseTimer() {
-		stopwatch.stop();
 		Duration elapsed = Duration.ofSeconds(stopwatch.elapsed(TimeUnit.SECONDS));
 		stopwatch.reset();
 		long totalSec = total.getSeconds()-elapsed.getSeconds();
 		currMin = totalSec/60;
 		currSec = totalSec%60;
-		long[] dur = {currMin,currSec-2};
+		long[] dur = {currMin,currSec};
 		return dur;
 	}
 
 	public void run() {
 		stopwatch.start();
+		
 		if(currSec == 200) {
 			currSec = 60;
 			application.controller.TimerController.updateTime(currMin--+":00");
 		}
 		else {
 			if(currSec>10) {
-				System.out.println(currMin + ":" + currSec);
+				System.out.println("Unpaused at " + currMin + ":" + currSec);
 				application.controller.TimerController.updateTime(currMin+":"+currSec);
 			}
 			else {
 				application.controller.TimerController.updateTime(currMin+":0"+currSec);
 			}
 		}
-		while(duration < min) {
-			if(!stopwatch.isRunning()) {
-				System.out.println("Pausing timer");
-				break;
-			}
+		while(duration < min && stopwatch.isRunning()) {
 			try {
 				TimeUnit.SECONDS.sleep(1);
 			} catch (InterruptedException e) {
