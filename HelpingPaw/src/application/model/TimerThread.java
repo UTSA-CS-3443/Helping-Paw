@@ -13,6 +13,7 @@ public class TimerThread extends Thread{
 	long min;
 	long currMin = 200;
 	long currSec = 200;
+	int x = 0;
 	Duration total;
 	public TimerThread(long m) {
 		this.min = m;
