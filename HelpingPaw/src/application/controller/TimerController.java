@@ -2,13 +2,16 @@ package application.controller;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import application.Main;
 import application.model.TimerThread;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -32,8 +35,9 @@ public class TimerController implements EventHandler<ActionEvent>  {
 	Button done;
 	@FXML
 	Button resume;
+	@FXML
+	Button back;
 	TimerThread currTimer;
-	TimerThread temp;
 	public void initialize() {
 		timer.setText("");
 		resume.setVisible(false);
@@ -62,13 +66,12 @@ public class TimerController implements EventHandler<ActionEvent>  {
 			done.setVisible(true);
 			resume.setVisible(false);
 			pause.setVisible(true);
+			System.out.println("Starting OG timer thread");
 			currTimer.start();
-
-			//else {
-			//t.run();
-			//}
 		}
 		if(p.getId().equals("pause")) {
+			currTimer.stopwatch.stop();
+			System.out.println("Stopping OG timer thread");
 			long[] tim = currTimer.pauseTimer();
 			TimerThread t = new TimerThread(tim[0],tim[1]);
 			currTimer = t;
@@ -77,7 +80,7 @@ public class TimerController implements EventHandler<ActionEvent>  {
 			resume.setVisible(true);
 		}
 		else if(p.getId().equals("done")) {
-			currTimer.stopTimer();
+			currTimer.stopwatch.reset();
 			timer.setVisible(false);
 			input.setVisible(true);
 			zero.setVisible(true);
@@ -90,7 +93,25 @@ public class TimerController implements EventHandler<ActionEvent>  {
 			done.setVisible(true);
 			resume.setVisible(false);
 			pause.setVisible(true);
+			System.out.println("Starting new timer thread");
 			currTimer.start();
 		}
+		if(p.getId().equals("back")) {
+			FXMLLoader loader = new FXMLLoader();
+			try {
+				loader.setLocation(getClass().getResource("view/PlannerView.fxml"));
+				Scene scene = new Scene(loader.load());
+				Main.stage.setScene(scene);
+				Main.stage.show();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+
+		}
+	}
+	public void loadNextTask() {
+		
 	}
 }
