@@ -135,7 +135,7 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 				}
 				else {
 					//TODO: cat gets mad af
-					txtCat.setText("you must select time of day to proceed have, dummy!");
+					txtCat.setText("You must select a time of day to proceed, silly goose! Try again.");
 				}
 			}		
 
