@@ -1,30 +1,27 @@
 package application.model;
 
-import java.time.Duration;
-import java.time.temporal.TemporalUnit;
 import java.util.concurrent.TimeUnit;
-import java.time.temporal.ChronoUnit;
 import com.google.common.base.Stopwatch;
 
 public class TimerThread extends Thread{
 	public Stopwatch stopwatch = Stopwatch.createUnstarted();
 	long duration = 0;
-	long millis = TimeUnit.MILLISECONDS.convert(1L,TimeUnit.SECONDS);
 	long min;
 	public long currMin = 200;
 	public long currSec = 200;
-	int x = 0;
-	Duration total;
+	public long totalSec;
+	public long calcSec = 0;
+	
 	public TimerThread(long m) {
 		this.min = m;
 		currMin = min;
-		total = Duration.ofMinutes(min);
+		totalSec = m*60;
 	}
 	public TimerThread(long m , long s) {
 		this.min = m;
 		this.currMin = min;
 		this.currSec = s;
-		total = Duration.ofMinutes(min+1);
+		totalSec=(m*60)+s;
 	}
 	public void stopTimer() {
 		stopwatch.reset();
@@ -45,7 +42,6 @@ public class TimerThread extends Thread{
 		}
 		else {
 			if(currSec>10) {
-				System.out.println("Unpaused Timer at " + currMin + ":" + currSec);
 				application.controller.TimerController.updateTime(currMin+":"+currSec);
 			}
 			else {
@@ -55,6 +51,7 @@ public class TimerThread extends Thread{
 		while(duration < min && stopwatch.isRunning()) {
 			try {
 				TimeUnit.SECONDS.sleep(1);
+				calcSec++;
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
