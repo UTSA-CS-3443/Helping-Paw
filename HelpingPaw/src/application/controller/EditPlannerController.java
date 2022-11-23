@@ -126,6 +126,7 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 		Button bt = (Button) event.getSource();
 
 		try {
+			
 			if (bt.getId().equals("btBack")) {
 				loader.setLocation(getClass().getResource("../view/PlannerView.fxml"));	
 				Scene scene = new Scene(loader.load());
@@ -158,36 +159,24 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 				}
 			}		
 
+			
 			if (bt.getId().equals("btDelete")) {
 				//TODO: Get the task that the user has clicked on in the ListView and delete it from Main.planner
 				if (listMorning.getSelectionModel().getSelectedItem() != null) {
-
-					for (int i = 0; i < Main.planner.size(); i++) {
-						if (Main.planner.get(i).getName().equals(listMorning.getSelectionModel().getSelectedItem())) {
-							Main.planner.remove(i);
-						}
-					}
-					morningList.remove(listMorning.getSelectionModel().getSelectedItem());
+					deleteTask(listMorning.getSelectionModel().getSelectedItem(), "morning");
+					
 					txtCat.setText("Your task has been deleted.");
 				}
 
 				else if (listAfternoon.getSelectionModel().getSelectedItem() != null) {
-					for (int i = 0; i < Main.planner.size(); i++) {
-						if (Main.planner.get(i).getName().equals(listAfternoon.getSelectionModel().getSelectedItem())) {
-							Main.planner.remove(i);
-						}
-					}
-					afternoonList.remove(listAfternoon.getSelectionModel().getSelectedItem());
+					deleteTask(listAfternoon.getSelectionModel().getSelectedItem(), "afternoon");
+					
 					txtCat.setText("Your task has been deleted.");
 				}
 
 				else if (listEvening.getSelectionModel().getSelectedItem() != null) {
-					for (int i = 0; i < Main.planner.size(); i++) {
-						if (Main.planner.get(i).getName().equals(listEvening.getSelectionModel().getSelectedItem())) {
-							Main.planner.remove(i);
-						}
-					}
-					eveningList.remove(listEvening.getSelectionModel().getSelectedItem());
+					deleteTask(listEvening.getSelectionModel().getSelectedItem(), "evening");
+					
 					txtCat.setText("Your task has been deleted.");
 				}
 
@@ -219,5 +208,24 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 		listAfternoon.setItems(afternoonList);
 		listEvening.setItems(eveningList);
 
+	}
+	public void deleteTask(String task, String timeOfDay) {
+		for (int i = 0; i < Main.planner.size(); i++) {
+			if (Main.planner.get(i).getName().equals(task)) {
+				Main.planner.remove(i);
+			}
+		}
+		if (timeOfDay.equals("morning")) {
+			morningList.remove(task);
+		}
+		
+		if (timeOfDay.equals("afternoon")) {
+			afternoonList.remove(task);
+		}
+		
+		else {
+			eveningList.remove(task);
+		}
+			
 	}
 }
