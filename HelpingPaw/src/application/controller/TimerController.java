@@ -125,7 +125,7 @@ public class TimerController implements EventHandler<ActionEvent>  {
 		if(p.getId().equals("back")) {
 			FXMLLoader loader = new FXMLLoader();
 			try {
-				loader.setLocation(getClass().getResource("view/PlannerView.fxml"));
+				loader.setLocation(getClass().getResource("../view/PlannerView.fxml"));
 				Scene scene = new Scene(loader.load());
 				Main.stage.setScene(scene);
 				Main.stage.show();
