@@ -26,31 +26,31 @@ public class PlannerController implements EventHandler<ActionEvent>, Initializab
 
 	@FXML
 	Rectangle rectangle;
-	
+
 	@FXML
 	ImageView imgCat;
-	
+
 	@FXML
 	Text txtCat;
-	
+
 	@FXML
 	Button btBack;
-	
+
 	@FXML 
 	Button btTimer;
-	
+
 	@FXML
 	Button btEdit;
-	
+
 	@FXML
 	ListView<String> listMorning;
-	
+
 	@FXML
 	ListView<String> listAfternoon;
-	
+
 	@FXML
 	ListView<String> listEvening;
-	
+
 	ObservableList<String> morningList = FXCollections.observableArrayList();
 	ObservableList<String> afternoonList = FXCollections.observableArrayList();
 	ObservableList<String> eveningList = FXCollections.observableArrayList();
@@ -59,22 +59,22 @@ public class PlannerController implements EventHandler<ActionEvent>, Initializab
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		rectangle.setFill(Main.user.color);
 		String col = User.colorToString(Main.user.color);
-		
+
 		btEdit.setStyle("-fx-background-color: " + col);
 		btTimer.setStyle("-fx-background-color: " + col);
-		
+
 		File file = new File("src/images/" + Main.user.cat + "talking.png");
 		Image catImg = new Image(file.toURI().toString());
 		imgCat.setImage(catImg);
-		
+
 		if (Main.planner.isEmpty()) {
 			txtCat.setText("Looks like your planner is empty! Let's add some tasks!");
 		}
-		
+
 		else {
 			txtCat.setText("Let's get to work! Click on a task, then start a timer!");
 		}
-		
+
 		for (int i = 0; i < Main.planner.size(); i++) {
 			if (Main.planner.get(i).getTimeOfDay().equals("morning")) {
 				morningList.add(Main.planner.get(i).getName());
@@ -85,11 +85,11 @@ public class PlannerController implements EventHandler<ActionEvent>, Initializab
 			else
 				eveningList.add(Main.planner.get(i).getName());
 		}
-		
+
 		listMorning.setItems(morningList);
 		listAfternoon.setItems(afternoonList);
 		listEvening.setItems(eveningList);
-		
+
 	}
 
 	@Override
@@ -100,50 +100,67 @@ public class PlannerController implements EventHandler<ActionEvent>, Initializab
 		try {
 			if (bt.getId().equals("btBack")) {
 				loader.setLocation(getClass().getResource("../view/Main.fxml"));	
+				Scene scene = new Scene(loader.load());
+				Main.stage.setScene(scene);
+				Main.stage.show();
 			}
-			
+
 			if (bt.getId().equals("btEdit")) {
-				loader.setLocation(getClass().getResource("../view/EditPlannerView.fxml"));		
+				loader.setLocation(getClass().getResource("../view/EditPlannerView.fxml"));	
+				Scene scene = new Scene(loader.load());
+				Main.stage.setScene(scene);
+				Main.stage.show();
 			}		
 
 			if (bt.getId().equals("btTimer")) {
 				if (listMorning.getSelectionModel().getSelectedItem() != null) {
-					txtCat.setText("Invalid, please select a task to begin");
+					Main.currTask = listMorning.getSelectionModel().getSelectedItem();
+					
+					loader.setLocation(getClass().getResource("../view/TimerView.fxml"));	
+					Scene scene = new Scene(loader.load());
+					Main.stage.setScene(scene);
+					Main.stage.show();
 				}
-				Main.currTask = listMorning.getSelectionModel().getSelectedItem();
-				loader.setLocation(getClass().getResource("../view/TimerView.fxml"));	
-			}
-			
-			if (bt.getId().equals("btTimer")) {
-				if (listAfternoon.getSelectionModel().getSelectedItem() != null) {
-					txtCat.setText("Invalid, please select a task to begin");
+
+				else if (listAfternoon.getSelectionModel().getSelectedItem() != null) {
+					Main.currTask = listAfternoon.getSelectionModel().getSelectedItem();
+					loader.setLocation(getClass().getResource("../view/TimerView.fxml"));
+					Scene scene = new Scene(loader.load());
+					Main.stage.setScene(scene);
+					Main.stage.show();
 				}
-				Main.currTask = listMorning.getSelectionModel().getSelectedItem();
-				loader.setLocation(getClass().getResource("../view/TimerView.fxml"));	
-				
-				
-			}
-			
-			if (bt.getId().equals("btTimer")) {
-				if (listEvening.getSelectionModel().getSelectedItem() != null) {
-					txtCat.setText("Invalid, please select a task to begin");
+
+				else if (listEvening.getSelectionModel().getSelectedItem() != null) {
+					Main.currTask = listEvening.getSelectionModel().getSelectedItem();
+					loader.setLocation(getClass().getResource("../view/TimerView.fxml"));	
+					Scene scene = new Scene(loader.load());
+					Main.stage.setScene(scene);
+					Main.stage.show();
 				}
-				Main.currTask = listMorning.getSelectionModel().getSelectedItem();
-				loader.setLocation(getClass().getResource("../view/TimerView.fxml"));	
-				
-				
+
+				else {
+					txtCat.setText("Select a task first before you start a timer!");
+					
+				}
 			}
-			
-			Scene scene = new Scene(loader.load());
-			Main.stage.setScene(scene);
-			Main.stage.show();
 
 		}
 		catch(IOException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-	
-	
+
+	//checks if something is selected in planner
+	public boolean isSelected() {
+		if (listMorning.getSelectionModel().getSelectedItem() == null && listAfternoon.getSelectionModel().getSelectedItem() == null &&
+				listEvening.getSelectionModel().getSelectedItem() == null) {
+			
+			return false;
+		}
+		
+		return true;
+	}
+
+
 }

@@ -13,7 +13,7 @@
    <children>
       <TextField fx:id="input" layoutX="243.0" layoutY="613.0" prefHeight="19.0" prefWidth="125.0" />
       <Text fx:id="zero" layoutX="375.0" layoutY="630.0" strokeType="OUTSIDE" strokeWidth="0.0" text=": 00" wrappingWidth="49.0" />
-      <Text fx:id="txtTask" layoutX="286.0" layoutY="578.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;Task title://test&quot;" textAlignment="CENTER" wrappingWidth="177.6708984375" />
+      <Text fx:id="timer" layoutX="286.0" layoutY="578.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;Task title://test&quot;" textAlignment="CENTER" wrappingWidth="177.6708984375" />
       <Button fx:id="pause" layoutX="415.0" layoutY="609.0" mnemonicParsing="false" onAction="#handle" prefHeight="33.0" prefWidth="110.0" style="-fx-background-color: #ffdcdc;" text="Pause" textFill="#836b60" />
       <Button fx:id="done" layoutX="250.0" layoutY="609.0" mnemonicParsing="false" onAction="#handle" prefHeight="33.0" prefWidth="110.0" style="-fx-background-color: #ffdcdc;" text="Done" textFill="#836b60" />
       <Button fx:id="resume" layoutX="415.0" layoutY="609.0" mnemonicParsing="false" onAction="#handle" prefHeight="33.0" prefWidth="110.0" style="-fx-background-color: #ffdcdc;" text="Resume" textFill="#836b60" />
@@ -33,5 +33,6 @@
          </viewport>
       </ImageView>
       <Text fx:id="txtCat" layoutX="571.0" layoutY="573.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Try your best! You got this!" textAlignment="CENTER" wrappingWidth="134.4290771484375" />
+      <Text fx:id="txtTask" layoutX="356.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
    </children>
 </AnchorPane>
