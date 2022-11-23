@@ -42,7 +42,7 @@ public class TimerController implements EventHandler<ActionEvent>  {
 	ImageView imgCat;
 	@FXML
 	Text txtCat;
-
+	@FXML
 	ProgressIndicator pb;
 
 	@FXML
