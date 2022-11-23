@@ -192,6 +192,7 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 			e.printStackTrace();
 		}
 	}
+	
 
 	public void addTask(Task t) {
 
@@ -209,6 +210,8 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 		listEvening.setItems(eveningList);
 
 	}
+	
+	
 	public void deleteTask(String task, String timeOfDay) {
 		for (int i = 0; i < Main.planner.size(); i++) {
 			if (Main.planner.get(i).getName().equals(task)) {
