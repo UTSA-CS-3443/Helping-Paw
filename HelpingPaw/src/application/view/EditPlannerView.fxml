@@ -29,7 +29,7 @@
          </image></ImageView>
       <TextField fx:id="txtFieldTask" layoutX="119.0" layoutY="615.0" onAction="#handle" prefHeight="33.0" prefWidth="256.0" />
       <Button fx:id="btDelete" layoutX="479.0" layoutY="670.0" mnemonicParsing="false" onAction="#handle" prefHeight="33.0" prefWidth="110.0" style="-fx-background-color: #ffdcdc;" text="Delete" textFill="#836b60" />
-      <Button fx:id="btBack" layoutX="36.0" layoutY="29.0" mnemonicParsing="false" onAction="#handle" prefHeight="22.0" prefWidth="148.0" style="-fx-background-color: #ffffff;" text="Back" textAlignment="CENTER" textFill="#836b60">
+      <Button fx:id="btBack" layoutX="36.0" layoutY="29.0" mnemonicParsing="false" onAction="#handle" prefHeight="22.0" prefWidth="148.0" style="-fx-background-color: #ffffff;" text="Done" textAlignment="CENTER" textFill="#836b60">
          <font>
             <Font name="October Devanagari Medium" size="35.0" />
          </font>
