@@ -45,6 +45,8 @@ public class TimerController implements EventHandler<ActionEvent>  {
 	ImageView imgCat;
 	@FXML
 	Text txtCat;
+	@FXML
+	Text txtTask;
 	
 	@FXML
 	Rectangle rectangleTV;
@@ -68,6 +70,7 @@ public class TimerController implements EventHandler<ActionEvent>  {
 		Image catImg = new Image(file.toURI().toString());
 		imgCat.setImage(catImg);
 		txtCat.setText("Click start button when you are ready, and remember try your best! You got this!");
+		txtTask.setText(Main.currTask);
 
 
 	}
