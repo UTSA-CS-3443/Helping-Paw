@@ -124,6 +124,7 @@ public class PlannerController implements EventHandler<ActionEvent>, Initializab
 
 				else if (listAfternoon.getSelectionModel().getSelectedItem() != null) {
 					Main.currTask = listAfternoon.getSelectionModel().getSelectedItem();
+					
 					loader.setLocation(getClass().getResource("../view/TimerView.fxml"));
 					Scene scene = new Scene(loader.load());
 					Main.stage.setScene(scene);
@@ -132,6 +133,7 @@ public class PlannerController implements EventHandler<ActionEvent>, Initializab
 
 				else if (listEvening.getSelectionModel().getSelectedItem() != null) {
 					Main.currTask = listEvening.getSelectionModel().getSelectedItem();
+					
 					loader.setLocation(getClass().getResource("../view/TimerView.fxml"));	
 					Scene scene = new Scene(loader.load());
 					Main.stage.setScene(scene);
@@ -155,10 +157,8 @@ public class PlannerController implements EventHandler<ActionEvent>, Initializab
 	public boolean isSelected() {
 		if (listMorning.getSelectionModel().getSelectedItem() == null && listAfternoon.getSelectionModel().getSelectedItem() == null &&
 				listEvening.getSelectionModel().getSelectedItem() == null) {
-			
 			return false;
 		}
-		
 		return true;
 	}
 
