@@ -72,6 +72,7 @@ public class TimerController implements EventHandler<ActionEvent>  {
 		rectangleTV.setFill(Main.user.color);
 
 		pause.setStyle("-fx-background-color: " + col);
+		reset.setStyle("-fx-background-color: " + col);
 		start.setStyle("-fx-background-color: " + col);
 		done.setStyle("-fx-background-color: " + col);
 		resume.setStyle("-fx-background-color: " + col);
