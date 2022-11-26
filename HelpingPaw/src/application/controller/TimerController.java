@@ -81,7 +81,7 @@ public class TimerController implements EventHandler<ActionEvent>  {
 		String kitty = "/images/" + Main.user.cat + "talking.png";
 		Image catImg = new Image(this.getClass().getResourceAsStream(kitty));
 		imgCat.setImage(catImg);
-		txtCat.setText("Click start button when you are ready, and remember try your best! You got this!");
+		txtCat.setText("Click the start button when you're ready, and remember to try your best! You got this!");
 		title.setText(Main.currTask);
 
 		//get the name of the task to display on the timer view

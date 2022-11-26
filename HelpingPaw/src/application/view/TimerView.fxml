@@ -26,7 +26,7 @@
       </Button>
       <ImageView fx:id="imgCat" fitHeight="231.0" fitWidth="230.0" layoutX="556.0" layoutY="570.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/philtalking.png" />
+            <Image url="@../../images/philtalking.png" />
          </image>
          <viewport>
             <Rectangle2D />
@@ -38,7 +38,7 @@
          </font></Text>
       <ProgressIndicator fx:id="pb" blendMode="SRC_ATOP" layoutX="142.0" layoutY="188.0" minHeight="341.0" minWidth="519.0" prefHeight="341.0" prefWidth="519.0" progress="0.0" />
       <Circle fill="WHITE" layoutX="401.0" layoutY="349.0" radius="143.0" stroke="WHITE" strokeType="INSIDE" />
-      <Text fx:id="title" layoutX="315.0" layoutY="579.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;Task title://test&quot;" textAlignment="CENTER" wrappingWidth="177.6708984375">
+      <Text fx:id="title" layoutX="256.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;Task title://test&quot;" textAlignment="CENTER" wrappingWidth="286.0">
          <font>
             <Font size="24.0" />
          </font></Text>
@@ -46,8 +46,8 @@
          <font>
             <Font size="36.0" />
          </font></Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="21.0" layoutX="293.0" layoutY="508.0" stroke="TRANSPARENT" strokeType="INSIDE" width="200.0" />
-      <Text fill="#836b60" layoutX="294.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Task" wrappingWidth="230.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="21.0" layoutX="293.0" layoutY="511.0" stroke="TRANSPARENT" strokeType="INSIDE" width="200.0" />
+      <Text fill="#836b60" layoutX="277.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Task" wrappingWidth="262.617431640625">
          <font>
             <Font name="October Devanagari Medium" size="60.0" />
          </font>
