@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="750.0" maxWidth="750.0" minHeight="750.0" minWidth="750.0" prefHeight="750.0" prefWidth="750.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.EditPlannerController">
+<AnchorPane maxHeight="800.0" maxWidth="800.0" minHeight="750.0" minWidth="750.0" prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.EditPlannerController">
    <children>
-      <ImageView fx:id="imgCat" fitHeight="231.0" fitWidth="230.0" layoutX="560.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgCat" fitHeight="231.0" fitWidth="230.0" layoutX="589.0" layoutY="572.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/phil.jpeg" />
          </image>
@@ -19,32 +19,32 @@
             <Rectangle2D />
          </viewport>
       </ImageView>
-      <Rectangle fx:id="rectangleEP" arcHeight="5.0" arcWidth="5.0" fill="#ffdcdc" height="157.0" stroke="TRANSPARENT" strokeType="INSIDE" width="750.0" />
-      <ListView fx:id="listMorning" layoutX="164.0" layoutY="196.0" prefHeight="133.0" prefWidth="411.0" />
-      <ListView fx:id="listAfternoon" layoutX="164.0" layoutY="329.0" prefHeight="133.0" prefWidth="411.0" />
-      <ListView fx:id="listEvening" layoutX="164.0" layoutY="462.0" prefHeight="133.0" prefWidth="411.0" />
-      <ImageView fitHeight="69.0" fitWidth="63.0" layoutX="594.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle fx:id="rectangleEP" arcHeight="5.0" arcWidth="5.0" fill="#ffdcdc" height="157.0" stroke="TRANSPARENT" strokeType="INSIDE" width="800.0" />
+      <ListView fx:id="listMorning" layoutX="194.0" layoutY="192.0" prefHeight="133.0" prefWidth="411.0" />
+      <ListView fx:id="listAfternoon" layoutX="194.0" layoutY="325.0" prefHeight="133.0" prefWidth="411.0" />
+      <ListView fx:id="listEvening" layoutX="194.0" layoutY="458.0" prefHeight="133.0" prefWidth="411.0" />
+      <ImageView fitHeight="69.0" fitWidth="63.0" layoutX="624.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/sun.png" />
          </image></ImageView>
-      <TextField fx:id="txtFieldTask" layoutX="119.0" layoutY="615.0" onAction="#handle" prefHeight="33.0" prefWidth="256.0" />
-      <Button fx:id="btDelete" layoutX="479.0" layoutY="670.0" mnemonicParsing="false" onAction="#handle" prefHeight="33.0" prefWidth="110.0" style="-fx-background-color: #ffdcdc;" text="Delete" textFill="#836b60" />
+      <TextField fx:id="txtFieldTask" layoutX="153.0" layoutY="613.0" onAction="#handle" prefHeight="33.0" prefWidth="256.0" />
+      <Button fx:id="btDelete" layoutX="513.0" layoutY="668.0" mnemonicParsing="false" onAction="#handle" prefHeight="33.0" prefWidth="110.0" style="-fx-background-color: #ffdcdc;" text="Delete" textFill="#836b60" />
       <Button fx:id="btBack" layoutX="36.0" layoutY="29.0" mnemonicParsing="false" onAction="#handle" prefHeight="22.0" prefWidth="148.0" style="-fx-background-color: #ffffff;" text="Done" textAlignment="CENTER" textFill="#836b60">
          <font>
             <Font name="October Devanagari Medium" size="35.0" />
          </font>
       </Button>
-      <Button fx:id="btAdd" layoutX="479.0" layoutY="616.0" mnemonicParsing="false" onAction="#handle" prefHeight="33.0" prefWidth="110.0" style="-fx-background-color: #ffdcdc;" text="Add" textFill="#836b60" />
-      <ChoiceBox fx:id="cbTOD" layoutX="384.0" layoutY="618.0" prefHeight="27.0" prefWidth="87.0" />
-      <ImageView fitHeight="69.0" fitWidth="63.0" layoutX="591.0" layoutY="494.0" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="btAdd" layoutX="513.0" layoutY="614.0" mnemonicParsing="false" onAction="#handle" prefHeight="33.0" prefWidth="110.0" style="-fx-background-color: #ffdcdc;" text="Add" textFill="#836b60" />
+      <ChoiceBox fx:id="cbTOD" layoutX="418.0" layoutY="616.0" prefHeight="27.0" prefWidth="87.0" />
+      <ImageView fitHeight="69.0" fitWidth="63.0" layoutX="621.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/moon.png" />
          </image></ImageView>
-      <ImageView fitHeight="69.0" fitWidth="63.0" layoutX="591.0" layoutY="364.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="69.0" fitWidth="63.0" layoutX="621.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/cloud.png" />
          </image>
       </ImageView>
-      <Text fx:id="txtCat" layoutX="602.0" layoutY="589.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter a task and select a Time of Day!" textAlignment="CENTER" wrappingWidth="134.4290771484375" />
+      <Text fx:id="txtCat" layoutX="637.0" layoutY="576.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter a task and select a Time of Day!" textAlignment="CENTER" wrappingWidth="134.4290771484375" />
    </children>
 </AnchorPane>

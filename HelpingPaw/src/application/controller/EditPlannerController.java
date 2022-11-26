@@ -58,7 +58,7 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 
 	@FXML
 	ImageView imgCat;
-	
+
 	@FXML
 	Text txtCat;
 
@@ -73,42 +73,43 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 
 	@FXML
 	TextField txtFieldTask;
-	
+
 
 	@FXML
-	ChoiceBox<String> cbTOD = new ChoiceBox<String>();
+	ChoiceBox<String> cbTOD = new ChoiceBox<>();
 
 	ObservableList<String> morningList = FXCollections.observableArrayList();
 	ObservableList<String> afternoonList = FXCollections.observableArrayList();
 	ObservableList<String> eveningList = FXCollections.observableArrayList();
 
+	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		String kitty = "/images/" + Main.user.cat + "talking.png";
+		Image catImg = new Image(this.getClass().getResourceAsStream(kitty));
+		imgCat.setImage(catImg);
 		rectangleEP.setFill(Main.user.color);
 		String col = User.colorToString(Main.user.color);
 
 		btDelete.setStyle("-fx-background-color: " + col);
 		btAdd.setStyle("-fx-background-color: " + col);
 
-		File file = new File("src/images/" + Main.user.cat + "talking.png");
-		Image catImg = new Image(file.toURI().toString());
-		imgCat.setImage(catImg);
 		if (Main.planner.isEmpty()) {
 			txtCat.setText("Type in your task, select a time of day to work on it, then click 'add task'!");
 		}
-		
+
 		else {
 			txtCat.setText("Psst! To delete a task, click on the task, then click 'delete'.");
 		}
 
-		for (int i = 0; i < Main.planner.size(); i++) {
-			if (Main.planner.get(i).getTimeOfDay().equals("morning")) {
-				morningList.add(Main.planner.get(i).getName());
+		for (Task element : Main.planner) {
+			if (element.getTimeOfDay().equals("morning")) {
+				morningList.add(element.getName());
 			}
-			else if (Main.planner.get(i).getTimeOfDay().equals("afternoon")) {
-				afternoonList.add(Main.planner.get(i).getName());
+			else if (element.getTimeOfDay().equals("afternoon")) {
+				afternoonList.add(element.getName());
 			}
 			else
-				eveningList.add(Main.planner.get(i).getName());
+				eveningList.add(element.getName());
 		}
 
 		listMorning.setItems(morningList);
@@ -125,9 +126,9 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 		Button bt = (Button) event.getSource();
 
 		try {
-			
+
 			if (bt.getId().equals("btBack")) {
-				loader.setLocation(getClass().getResource("../view/PlannerView.fxml"));	
+				loader.setLocation(getClass().getResource("/application/view/PlannerView.fxml"));
 				Scene scene = new Scene(loader.load());
 				Main.stage.setScene(scene);
 				Main.stage.show();
@@ -136,46 +137,46 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 			if (bt.getId().equals("btAdd")) {
 
 				if (cbTOD.getValue() != null && !txtFieldTask.getText().isEmpty()) {
-					File file = new File("src/images/" + Main.user.cat + "talking.png");
-					Image catImg = new Image(file.toURI().toString());
+					String kitty = "/images/" + Main.user.cat + "talking.png";
+					Image catImg = new Image(this.getClass().getResourceAsStream(kitty));
 					imgCat.setImage(catImg);
-					
+
 					Task newTask = new Task(txtFieldTask.getText(), cbTOD.getValue());
 					Main.planner.add(newTask);
 					txtFieldTask.clear();
 					addTask(newTask);
-					
+
 					txtCat.setText("Your task has been added!");
 				}
-				
+
 				else {
 
-					File file = new File("src/images/" + Main.user.cat + "wtf.png");
-					Image catImg = new Image(file.toURI().toString());
+					String kitty = "/images/" + Main.user.cat + "wtf.png";
+					Image catImg = new Image(this.getClass().getResourceAsStream(kitty));
 					imgCat.setImage(catImg);
 					txtCat.setText("You must select a time of day to proceed, silly goose! Try again.");
 
 				}
-			}		
+			}
 
-			
+
 			if (bt.getId().equals("btDelete")) {
 				//TODO: Get the task that the user has clicked on in the ListView and delete it from Main.planner
 				if (listMorning.getSelectionModel().getSelectedItem() != null) {
 					deleteTask(listMorning.getSelectionModel().getSelectedItem(), "morning");
-					
+
 					txtCat.setText("Your task has been deleted.");
 				}
 
 				else if (listAfternoon.getSelectionModel().getSelectedItem() != null) {
 					deleteTask(listAfternoon.getSelectionModel().getSelectedItem(), "afternoon");
-					
+
 					txtCat.setText("Your task has been deleted.");
 				}
 
 				else if (listEvening.getSelectionModel().getSelectedItem() != null) {
 					deleteTask(listEvening.getSelectionModel().getSelectedItem(), "evening");
-					
+
 					txtCat.setText("Your task has been deleted.");
 				}
 
@@ -191,7 +192,7 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 			e.printStackTrace();
 		}
 	}
-	
+
 
 	public void addTask(Task t) {
 
@@ -207,12 +208,12 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 		listMorning.setItems(morningList);
 		listAfternoon.setItems(afternoonList);
 		listEvening.setItems(eveningList);
-		
+
 		sortPlanner();
 
 	}
-	
-	
+
+
 	public void deleteTask(String task, String timeOfDay) {
 		for (int i = 0; i < Main.planner.size(); i++) {
 			if (Main.planner.get(i).getName().equals(task)) {
@@ -222,38 +223,38 @@ public class EditPlannerController implements EventHandler<ActionEvent>, Initial
 		if (timeOfDay.equals("morning")) {
 			morningList.remove(task);
 		}
-		
+
 		if (timeOfDay.equals("afternoon")) {
 			afternoonList.remove(task);
 		}
-		
+
 		else {
 			eveningList.remove(task);
 		}
-			
+
 	}
-	
+
 	//Sorts planner by time of day
 	public void sortPlanner() {
-		ArrayList<Task> sortedPlanner = new ArrayList<Task>();
+		ArrayList<Task> sortedPlanner = new ArrayList<>();
 		for (int i = 0; i < Main.planner.size(); i++) {
-			
+
 			if (Main.planner.get(i).getTimeOfDay().equals("morning"))
 				sortedPlanner.add(Main.planner.get(i));
 		}
-		
+
 		for (int i = 0; i < Main.planner.size(); i++) {
-			
+
 			if (Main.planner.get(i).getTimeOfDay().equals("afternoon"))
 				sortedPlanner.add(Main.planner.get(i));
 		}
-		
+
 		for (int i = 0; i < Main.planner.size(); i++) {
-			
+
 			if (Main.planner.get(i).getTimeOfDay().equals("evening"))
 				sortedPlanner.add(Main.planner.get(i));
 		}
-		
+
 		Main.planner = sortedPlanner;
 	}
 }

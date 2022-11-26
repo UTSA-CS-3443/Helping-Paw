@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 
 import application.Main;
 import application.model.User;
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -46,8 +47,8 @@ public class MainController implements EventHandler<ActionEvent>, Initializable 
 		btOptions.setStyle("-fx-background-color: " + col);
 		btExit.setStyle("-fx-background-color: " + col);
 
-		File file = new File("src/images/" + Main.user.cat + ".jpeg");
-		Image catImg = new Image(file.toURI().toString());
+		String kitty = "/images/" + Main.user.cat + ".jpeg";
+		Image catImg = new Image(this.getClass().getResourceAsStream(kitty));
 		imgCat.setImage(catImg);
 
 	}
@@ -59,17 +60,17 @@ public class MainController implements EventHandler<ActionEvent>, Initializable 
 
 		try {
 			if (bt.getId().equals("btOptions")) {
-				loader.setLocation(getClass().getResource("../view/OptionsView.fxml"));	
+				loader.setLocation(getClass().getResource("/application/view/OptionsView.fxml"));
 			}
 			//MyPlanner is temporarily TimerView for testing purposes
 			if (bt.getId().equals("btPlanner")) {
-				loader.setLocation(getClass().getResource("../view/PlannerView.fxml"));		
-			}		
+				loader.setLocation(getClass().getResource("/application/view/PlannerView.fxml"));
+			}
 
 			if (bt.getId().equals("btExit")) {
 				System.exit(0);
 			}
-			
+
 			Scene scene = new Scene(loader.load());
 			Main.stage.setScene(scene);
 			Main.stage.show();

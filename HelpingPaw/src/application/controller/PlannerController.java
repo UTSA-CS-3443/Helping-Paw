@@ -6,7 +6,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.Main;
+import application.model.Task;
 import application.model.User;
+import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -36,7 +38,7 @@ public class PlannerController implements EventHandler<ActionEvent>, Initializab
 	@FXML
 	Button btBack;
 
-	@FXML 
+	@FXML
 	Button btTimer;
 
 	@FXML
@@ -63,8 +65,8 @@ public class PlannerController implements EventHandler<ActionEvent>, Initializab
 		btEdit.setStyle("-fx-background-color: " + col);
 		btTimer.setStyle("-fx-background-color: " + col);
 
-		File file = new File("src/images/" + Main.user.cat + "talking.png");
-		Image catImg = new Image(file.toURI().toString());
+		String kitty = "/images/" + Main.user.cat + "talking.png";
+		Image catImg = new Image(this.getClass().getResourceAsStream(kitty));
 		imgCat.setImage(catImg);
 
 		if (Main.planner.isEmpty()) {
@@ -75,15 +77,15 @@ public class PlannerController implements EventHandler<ActionEvent>, Initializab
 			txtCat.setText("Let's get to work! Click on a task, then start a timer!");
 		}
 
-		for (int i = 0; i < Main.planner.size(); i++) {
-			if (Main.planner.get(i).getTimeOfDay().equals("morning")) {
-				morningList.add(Main.planner.get(i).getName());
+		for (Task element : Main.planner) {
+			if (element.getTimeOfDay().equals("morning")) {
+				morningList.add(element.getName());
 			}
-			else if (Main.planner.get(i).getTimeOfDay().equals("afternoon")) {
-				afternoonList.add(Main.planner.get(i).getName());
+			else if (element.getTimeOfDay().equals("afternoon")) {
+				afternoonList.add(element.getName());
 			}
 			else
-				eveningList.add(Main.planner.get(i).getName());
+				eveningList.add(element.getName());
 		}
 
 		listMorning.setItems(morningList);
@@ -99,24 +101,24 @@ public class PlannerController implements EventHandler<ActionEvent>, Initializab
 
 		try {
 			if (bt.getId().equals("btBack")) {
-				loader.setLocation(getClass().getResource("../view/Main.fxml"));	
+				loader.setLocation(this.getClass().getResource("/application/view/Main.fxml"));
 				Scene scene = new Scene(loader.load());
 				Main.stage.setScene(scene);
 				Main.stage.show();
 			}
 
 			if (bt.getId().equals("btEdit")) {
-				loader.setLocation(getClass().getResource("../view/EditPlannerView.fxml"));	
+				loader.setLocation(this.getClass().getResource("/application/view/EditPlannerView.fxml"));
 				Scene scene = new Scene(loader.load());
 				Main.stage.setScene(scene);
 				Main.stage.show();
-			}		
+			}
 
 			if (bt.getId().equals("btTimer")) {
 				if (listMorning.getSelectionModel().getSelectedItem() != null) {
 					Main.currTask = listMorning.getSelectionModel().getSelectedItem();
-					
-					loader.setLocation(getClass().getResource("../view/TimerView.fxml"));	
+
+					loader.setLocation(this.getClass().getResource("/application/view/TimerView.fxml"));
 					Scene scene = new Scene(loader.load());
 					Main.stage.setScene(scene);
 					Main.stage.show();
@@ -124,8 +126,8 @@ public class PlannerController implements EventHandler<ActionEvent>, Initializab
 
 				else if (listAfternoon.getSelectionModel().getSelectedItem() != null) {
 					Main.currTask = listAfternoon.getSelectionModel().getSelectedItem();
-					
-					loader.setLocation(getClass().getResource("../view/TimerView.fxml"));
+
+					loader.setLocation(this.getClass().getResource("/application/view/TimerView.fxml"));
 					Scene scene = new Scene(loader.load());
 					Main.stage.setScene(scene);
 					Main.stage.show();
@@ -133,8 +135,8 @@ public class PlannerController implements EventHandler<ActionEvent>, Initializab
 
 				else if (listEvening.getSelectionModel().getSelectedItem() != null) {
 					Main.currTask = listEvening.getSelectionModel().getSelectedItem();
-					
-					loader.setLocation(getClass().getResource("../view/TimerView.fxml"));	
+
+					loader.setLocation(this.getClass().getResource("/application/view/TimerView.fxml"));
 					Scene scene = new Scene(loader.load());
 					Main.stage.setScene(scene);
 					Main.stage.show();
@@ -142,7 +144,7 @@ public class PlannerController implements EventHandler<ActionEvent>, Initializab
 
 				else {
 					txtCat.setText("Select a task first before you start a timer!");
-					
+
 				}
 			}
 

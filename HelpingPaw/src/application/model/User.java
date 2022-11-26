@@ -3,11 +3,11 @@ package application.model;
 import javafx.scene.paint.Color;
 
 public class User {
-	
+
 	public Color color;
 	public String cat;
-	
-	
+
+
 	/**
 	 * @param color
 	 * @param cat
@@ -49,9 +49,9 @@ public class User {
 	public void setCat(String cat) {
 		this.cat = cat;
 	}
-	
+
 	public static String colorToString(Color color) {
-		
+
 		if (color.equals(Color.rgb(255, 214, 218))) {
 			return ("#ffd6da");
 		}

@@ -1,10 +1,10 @@
 package application.model;
 
 public class Task {
-	
+
 	private String name;
 	private String timeOfDay;
-	
+
 	/**
 	 * @param name
 	 * @param timeOfDay
@@ -42,6 +42,6 @@ public class Task {
 	public void setTimeOfDay(String timeOfDay) {
 		this.timeOfDay = timeOfDay;
 	}
-	
+
 
 }
