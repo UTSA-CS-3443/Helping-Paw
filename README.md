@@ -1,21 +1,29 @@
 # Helping-Paw
 
-**Helping Paw** is an application designed to assist you in planning your day according to your preferred time allocation and daily routine. What sets Helping Paw apart is its unique emphasis on promoting mental health and adapting to the user's lifestyle. This stress-free planner application offers a positive helping hand to help users realistically achieve their goals.
+**Helping Paw** is an application that helps plan your day based on how you would like to spend your time in relation to your average daily routine. However, what makes Helping Paw special is its unique design to promote mental health and adapt to the user’s lifestyle. It’s a stress-free planner application that will help the user complete their goals in a realistic manner with a positive helping hand.
 
 ## Features
 
-- **Guidance from Cat Companions:** Throughout the application, a cat in the right corner provides special instructions, guidance, and encouragement. Messages like "You're doing great!" and "Productivity master!" are designed to create a positive and supportive atmosphere.
+- **Guidance from Cat Companions:** In each view, the user will see a cat in the right corner giving special instructions, guidance, and encouragement such as “You're doing great!” and “Productivity master!”
 
-- **OptionsView:** Accessed through the MainView, users can customize their experience by choosing themes from a pastel variety pack. Additionally, users can select one of three trusty helping paw agents—Phil, Ed, and Salem—to guide them through their tasks.
+- **OptionsView:** In the OptionsView accessed through the MainView, users can set up their theme from our pastel variety pack and even select one of our three trusty helping paw agents, Phil, Ed, and Salem, to guide them through their task with a helping paw.
 
-- **PlannerView:** This view displays tasks in three list views—Morning, Afternoon, and Evening. Users can edit tasks and start timers from this centralized hub.
+- **PlannerView:** Once the user is ready, they can head to the PlannerView where their task will be displayed in three listviews: Morning, Afternoon, and Evening. Two buttons for the user to click on the “Edit Task” button and the “Start a Timer” button.
 
-- **Task Editing:** By clicking the "Edit Task" button, users enter a view where they can add, edit, or delete tasks. Helping lab agents guide users to fill in the task name and select the corresponding time of day. Tasks are displayed in a list view categorized by Morning, Afternoon, and Evening.
+- **Task Editing:** To begin, the user must select the “Edit Task” button to switch to the view where they can edit, add, and delete their task. A helping paw agent will guide them to fill in the text field with the task name and select the corresponding time of day from the drop-down menu next to the text field.
 
-- **TimerView:** Users can start a task by clicking the "Start a Timer" button in the PlannerView. This view displays the selected task underneath a circular progression bar. Users can input the time in minutes and monitor progress visually. Options to pause or mark a task as done are also available.
+- **Task Deletion:** If they desire to delete a task they’ve created, the helping paw agent will also guide them to simply select the task in the listview and then click the delete button to remove the task completely.
 
-- **Task Completion:** After completing a task, it is removed from the tasks list view, and the next task based on the time of day and priority appears in the task name textbox.
+- **Back to PlannerView:** Once the tasks are to the user's liking, they can head back to the PlannerView but click the “Back” button. From here, their list will be displayed in time of day order ready to be selected by the user.
+
+- **Starting a Task:** When the user is ready to begin a task, they will be prompted to select a task and then click on the “Start a Task” button to take them to the TimerView.
+
+- **TimerView:** In the TimerView, the selected task will be displayed underneath a circular progression bar. The user can enter the amount of time in minutes they would like to take to complete the task. A visual aid of how much time the user has completed so far will be provided.
+
+- **Pause and Done Options:** In the TimerView, there is also an option to pause or to select done in case you finish earlier than previously anticipated.
+
+- **Task Completion:** After the task is complete, it will be removed from the tasks listview, and in the TimerView, the next task to do based on the time of day and next in line to what has been selected to complete first will then appear in the task name textbox.
 
 ## Code Quality
 
-Our code is free of known bugs, and each team member made significant contributions to the project. For instance, Andrea focused on setting up the timer and progression bar, Bianca worked on the model for cats and task systems, while Litzy participated in setting up various model and view components for the program.
+There are no known bugs in our code, and each team member contributed to the progress. For example, Andrea worked most on setting up the timer and progression bar, Bianca did most of the model to set up the cats, task systems, and Litzy participated in setting up parts of the model and views for the program.
